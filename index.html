@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Violencia Sexual en Conflictos · Panel Educativo ONU</title>
+
+<!-- Chart.js por CDN (con fallback CSS si no hay internet) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<style>
+/* ============================================================
+   VARIABLES DE DISEÑO
+   ============================================================ */
+:root{
+  --violeta:#7c3aed;
+  --violeta-osc:#5b21b6;
+  --turquesa:#14b8a6;
+  --fondo:#0f1020;
+  --fondo-2:#181a2e;
+  --tarjeta:#1f2140;
+  --tarjeta-2:#262a4f;
+  --texto:#f4f4ff;
+  --texto-suave:#b9bbd6;
+  --borde:#34386a;
+  --rojo:#ef4444;
+  --ambar:#f59e0b;
+  --verde:#22c55e;
+  --azul:#3b82f6;
+  --radio:18px;
+  --sombra:0 10px 30px rgba(0,0,0,.35);
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:var(--fuente);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,.35), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgba(20,184,166,.22), transparent 55%),
+    var(--fondo);
+  color:var(--texto);
+  min-height:100vh;
+  line-height:1.5;
+}
+a{color:var(--turquesa);}
+button{font-family:inherit;cursor:pointer;}
+:focus-visible{outline:3px solid var(--turquesa);outline-offset:3px;border-radius:8px;}
+
+/* ============================================================
+   ENCABEZADO Y NAVEGACIÓN
+   ============================================================ */
+header.app-header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(15,16,32,.82);
+  border-bottom:1px solid var(--borde);
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px;}
+.brand .logo{
+  width:42px;height:42px;border-radius:14px;
+  background:linear-gradient(135deg,var(--violeta),var(--turquesa));
+  display:grid;place-items:center;font-size:22px;
+  box-shadow:0 6px 18px rgba(124,58,237,.45);
+}
+.brand small{display:block;font-weight:500;color:var(--texto-suave);font-size:.78rem;}
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap;}
+nav.tabs button{
+  background:transparent;border:1px solid var(--borde);color:var(--texto-suave);
+  padding:8px 14px;border-radius:999px;font-weight:600;font-size:.85rem;
+  transition:.2s all;
+}
+nav.tabs button:hover{border-color:var(--violeta);color:var(--texto);}
+nav.tabs button[aria-selected="true"]{
+  background:linear-gradient(135deg,var(--violeta),var(--violeta-osc));
+  color:#fff;border-color:transparent;box-shadow:0 6px 18px rgba(124,58,237,.4);
+}
+
+/* ============================================================
+   LAYOUT GENERAL
+   ============================================================ */
+main{max-width:1200px;margin:0 auto;padding:28px 20px 80px;}
+.vista{display:none;animation:fadeIn .35s ease;}
+.vista.activa{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+h1,h2,h3{line-height:1.15;margin:0 0 .4em;}
+h2{font-size:clamp(1.3rem,2.6vw,1.9rem);}
+.sub{color:var(--texto-suave);font-size:.98rem;margin:0 0 22px;max-width:75ch;}
+
+/* ============================================================
+   TARJETAS GENÉRICAS
+   ============================================================ */
+.card{
+  background:linear-gradient(160deg,var(--tarjeta),var(--fondo-2));
+  border:1px solid var(--borde);
+  border-radius:var(--radio);
+  padding:20px;
+  box-shadow:var(--sombra);
+}
+.grid{display:grid;gap:18px;}
+.grid.cols-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+.grid.cols-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+
+/* ============================================================
+   HERO / CONTADOR ANIMADO
+   ============================================================ */
+.hero{
+  display:grid;gap:18px;grid-template-columns:1.1fr .9fr;
+  align-items:stretch;margin-bottom:26px;
+}
+@media(max-width:820px){.hero{grid-template-columns:1fr;}}
+.hero .contador-wrap{
+  display:flex;flex-direction:column;justify-content:center;
+  background:linear-gradient(135deg,rgba(124,58,237,.28),rgba(20,184,166,.18));
+  border:1px solid var(--borde);border-radius:var(--radio);padding:26px;
+}
+.contador-label{color:var(--texto-suave);font-weight:600;font-size:.9rem;letter-spacing:.4px;text-transform:uppercase;}
+.contador-num{
+  font-size:clamp(3rem,9vw,5.4rem);font-weight:900;line-height:1;
+  background:linear-gradient(90deg,#fff,var(--turquesa));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  margin:6px 0;
+}
+.contador-desc{color:var(--texto-suave);font-size:.92rem;max-width:40ch; margin-top:10px;}
+
+/* Tarjetas KPI pequeñas */
+.kpi{display:flex;flex-direction:column;gap:4px;}
+.kpi .kpi-num{font-size:1.8rem;font-weight:900;color:var(--turquesa);}
+.kpi .kpi-lbl{color:var(--texto);font-size:.9rem;font-weight:700;}
+.kpi .kpi-sub{color:var(--texto-suave);font-size:.78rem;margin-top:2px;}
+
+/* ============================================================
+   GRÁFICO Y SELECTOR
+   ============================================================ */
+.chart-box{position:relative;min-height:320px;width:100%;display:flex;align-items:center;justify-content:center; flex-direction:column;}
+.chart-fallback{display:flex;flex-direction:column;gap:10px;padding:10px 0;width:100%;}
+.barra-fila{display:grid;grid-template-columns:70px 1fr 60px;align-items:center;gap:10px;font-size:.85rem;}
+.barra{height:14px;border-radius:7px;background:var(--borde);overflow:hidden;}
+.barra > span{display:block;height:100%;border-radius:7px;background:linear-gradient(90deg,var(--violeta),var(--turquesa));transition:width .8s ease;}
+
+/* Selector de tendencias con alto contraste */
+#selectorTendencia {
+  background-color: var(--tarjeta-2) !important;
+  color: var(--texto) !important;
+  border: 1px solid var(--violeta) !important;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  cursor: pointer;
+  appearance: auto;
+  width: 100%;
+  margin-bottom: 12px;
+}
+#selectorTendencia option {
+  background-color: var(--fondo-2);
+  color: var(--texto);
+}
+
+/* Aclaración de la gráfica */
+.chart-aclaracion {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,.05);
+  border-left: 3px solid var(--turquesa);
+  border-radius: 6px;
+}
+
+/* Chip de variación */
+.chip-variacion {
+  display: inline-block;
+  background: rgba(20, 184, 166, 0.15);
+  color: var(--turquesa);
+  border: 1px solid var(--turquesa);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  animation: popIn 0.4s ease-out;
+}
+@keyframes popIn { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+/* Tarjeta Big Number (para 1 solo dato) */
+.big-number-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+.big-number-val {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  color: var(--ambar);
+  line-height: 1;
+  margin-bottom: 10px;
+  animation: scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes scaleUp { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.big-number-lbl {
+  font-size: 1rem;
+  color: var(--texto-suave);
+  max-width: 400px;
+}
+
+/* ============================================================
+   TARJETAS DE CASOS GRAVES
+   ============================================================ */
+.caso-card{border-left:5px solid var(--rojo);display:flex;flex-direction:column;gap:8px;}
+.caso-card .pais{font-weight:800;font-size:1.1rem;}
+.caso-card .dato{font-size:1.6rem;font-weight:900;color:var(--ambar);}
+.caso-card .unidad{font-size:0.85rem; font-weight:normal; color:var(--texto-suave);}
+.caso-card .contexto{font-size:.82rem; color:var(--texto-suave); margin-bottom: 4px;}
+.caso-card blockquote{
+  margin:0;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.04);
+  border:1px solid var(--borde);font-size:.86rem;color:var(--texto-suave);font-style:italic;
+}
+.caso-card .fuente{font-size:.74rem;color:var(--texto-suave);}
+
+/* ============================================================
+   BRECHAS
+   ============================================================ */
+.brecha{display:flex;gap:12px;align-items:flex-start;}
+.brecha .icono{
+  width:40px;height:40px;flex:0 0 40px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(239,68,68,.15);color:var(--rojo);font-size:1.1rem;
+}
+.brecha h4{margin:0 0 2px;font-size:.95rem;}
+.brecha p{margin:0;color:var(--texto-suave);font-size:.85rem;}
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:none;border-radius:999px;padding:12px 22px;font-weight:700;font-size:.95rem;
+  background:linear-gradient(135deg,var(--violeta),var(--violeta-osc));color:#fff;
+  box-shadow:0 8px 22px rgba(124,58,237,.4);transition:.2s transform,.2s box-shadow;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(124,58,237,.55);}
+.btn.secundario{background:transparent;border:1px solid var(--borde);color:var(--texto);box-shadow:none;}
+.btn.secundario:hover{border-color:var(--turquesa);}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;}
+
+/* ============================================================
+   ACTIVIDADES GENÉRICAS
+   ============================================================ */
+.actividad{max-width:900px;margin:0 auto;}
+.actividad header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px;}
+.progreso{height:10px;border-radius:6px;background:var(--borde);overflow:hidden;margin:10px 0 20px;}
+.progreso > span{display:block;height:100%;background:linear-gradient(90deg,var(--violeta),var(--turquesa));transition:width .4s;}
+
+.opciones{display:grid;gap:10px;margin-top:14px;}
+.opcion{
+  text-align:left;padding:14px 16px;border-radius:14px;border:1px solid var(--borde);
+  background:rgba(255,255,255,.03);color:var(--texto);font-size:.95rem;transition:.15s;
+}
+.opcion:hover{border-color:var(--violeta);background:rgba(124,58,237,.12);}
+.opcion.correcta{border-color:var(--verde);background:rgba(34,197,94,.16);}
+.opcion.incorrecta{border-color:var(--rojo);background:rgba(239,68,68,.16);}
+.opcion:disabled{cursor:default;}
+
+.feedback{margin-top:14px;padding:14px;border-radius:14px;font-size:.9rem;border:1px solid var(--borde);background:rgba(255,255,255,.04);}
+.feedback.ok{border-color:var(--verde);}
+.feedback.no{border-color:var(--rojo);}
+
+/* Estilos específicos Juego 1: Detector de Brechas */
+.poster-wrap{
+  position:relative; background:#2a2a4a; padding:30px; border-radius:16px;
+  text-align:center; border:2px dashed var(--borde); margin-bottom:20px; min-height:250px;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  transition: all 0.4s ease;
+}
+.poster-wrap.roto { border:2px solid var(--rojo); background:rgba(239,68,68,.05); }
+.alerta-btn {
+  background:var(--ambar); color:#000; padding:10px 16px; border-radius:10px;
+  font-weight:bold; border:none; margin:8px; box-shadow:0 4px 12px rgba(0,0,0,.3);
+  animation: flotar 2s infinite alternate ease-in-out; transition: opacity 0.3s;
+}
+.alerta-btn:hover { transform:scale(1.05); background:#fbbf24; }
+@keyframes flotar { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+
+/* Estilos Juego 2: Laberinto */
+.laberinto { display:grid; gap:14px; }
+.camino-card {
+  background:rgba(255,255,255,.04); border:1px solid var(--borde); padding:16px;
+  border-radius:14px; cursor:pointer; transition:.2s;
+}
+.camino-card:hover { border-color:var(--turquesa); background:rgba(20,184,166,.1); }
+
+/* Estilos Juego 3: ¿Quién documenta qué? */
+.buzones { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:20px; }
+.buzon {
+  background:var(--tarjeta-2); padding:15px; border-radius:12px; text-align:center;
+  border:2px solid transparent; font-weight:bold; transition: all 0.3s ease;
+}
+.buzon.activo { border-color:var(--turquesa); background:rgba(20,184,166,.15); }
+.buzon.lleno { opacity:0.5; pointer-events:none; }
+.reporte-card {
+  background:var(--violeta-osc); padding:14px; border-radius:12px;
+  cursor:grab; margin-bottom:10px; font-size:.9rem; border:1px solid var(--violeta);
+  transition: transform 0.2s;
+}
+.reporte-card:hover { transform: scale(1.02); }
+.reporte-card.arrastrando { opacity:0.5; }
+
+/* Estilos Juego 4: Verdadero o Falso */
+.vf-container { text-align:center; padding:20px 0; }
+.vf-afirmacion { font-size:1.2rem; font-weight:bold; margin-bottom:20px; min-height:60px; }
+.vf-botones { display:flex; justify-content:center; gap:20px; margin-bottom:20px; }
+.btn-vf { font-size:1.2rem; padding:15px 40px; border-radius:14px; transition: transform 0.2s; }
+.btn-vf:hover { transform: scale(1.05); }
+.btn-v { background:var(--verde); color:#fff; border:none; }
+.btn-f { background:var(--rojo); color:#fff; border:none; }
+
+/* Estilos Juego 5: Nube de palabras */
+.nube-wrap { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin:20px 0; }
+.nube-item {
+  background:rgba(124,58,237,.2); border:1px solid var(--violeta);
+  padding:10px 16px; border-radius:999px; cursor:pointer; font-weight:bold;
+  transition:.2s; font-size:1rem; color:#fff;
+}
+.nube-item:hover { background:var(--violeta); transform:scale(1.1); }
+.nube-item.descubierto { background:var(--turquesa); border-color:var(--turquesa); color:#000; }
+
+/* Pie */
+footer.app-footer{
+  border-top:1px solid var(--borde);background:rgba(15,16,32,.7);
+  padding:26px 20px;color:var(--texto-suave);font-size:.82rem;
+}
+footer.app-footer .inner{max-width:1200px;margin:0 auto;display:grid;gap:8px;}
+
+/* Utilidades */
+.oculto{display:none !important;}
+.mt{margin-top:18px;}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     ENCABEZADO
+     ============================================================ -->
+<header class="app-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">🕊️</div>
+      <div>
+        Violencia sexual en conflictos
+        <small>Panel educativo · Datos ONU</small>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Navegación principal">
+      <button role="tab" data-vista="panel" aria-selected="true">📊 Panel</button>
+      <button role="tab" data-vista="juego1" aria-selected="false">🔍 Detector de brechas</button>
+      <button role="tab" data-vista="juego2" aria-selected="false">🧩 Laberinto</button>
+      <button role="tab" data-vista="juego3" aria-selected="false">📁 ¿Quién documenta?</button>
+      <button role="tab" data-vista="juego4" aria-selected="false">🤔 V o F</button>
+      <button role="tab" data-vista="juego5" aria-selected="false">☁️ Tipos de violencia</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ============================================================
+       VISTA PANEL
+       ============================================================ -->
+  <section id="vista-panel" class="vista activa" aria-labelledby="titulo-panel">
+    <h1 id="titulo-panel">Lo que dicen los documentos de la ONU</h1>
+    <p class="sub">Resumen interactivo de los informes del Secretario General sobre violencia sexual relacionada con conflictos (S/2025/389, S/2025/556 y S/2026/321). Explora cifras, países y resoluciones.</p>
+
+    <div class="hero">
+      <div class="contador-wrap">
+        <div class="contador-label">Índice de densidad informativa</div>
+        <div class="contador-num" id="contadorTotal" aria-live="polite">0</div>
+        <div class="contador-desc"><strong>¿Qué es esto?</strong> No es el número de víctimas. Es la suma de todos los datos, citas, resoluciones y brechas que los tres informes de la ONU han documentado sobre este tema.</div>
+      </div>
+      <div class="grid cols-2">
+        <div class="card kpi">
+          <div class="kpi-num" id="kpiPaises">0</div>
+          <div class="kpi-lbl">Países mencionados</div>
+          <div class="kpi-sub">Territorios donde se documentaron casos o se señalaron perpetradores.</div>
+        </div>
+        <div class="card kpi">
+          <div class="kpi-num" id="kpiResoluciones">0</div>
+          <div class="kpi-lbl">Resoluciones de la ONU</div>
+          <div class="kpi-sub">Acuerdos del Consejo de Seguridad (ej. 1325, 1820) y compromisos asumidos.</div>
+        </div>
+        <div class="card kpi">
+          <div class="kpi-num" id="kpiDatos">0</div>
+          <div class="kpi-lbl">Cifras duras</div>
+          <div class="kpi-sub">Estadísticas y datos cuantitativos (porcentajes, personas afectadas, millones).</div>
+        </div>
+        <div class="card kpi">
+          <div class="kpi-num" id="kpiBrechas">0</div>
+          <div class="kpi-lbl">Brechas identificadas</div>
+          <div class="kpi-sub">Problemas estructurales que la ONU reconoce que están fallando.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid cols-2 mt">
+      <!-- GRÁFICO REDISEÑADO -->
+      <div class="card">
+        <h2>Evolución de las tendencias</h2>
+        <p class="sub" style="font-size:0.85rem; margin-bottom:10px">Selecciona un tema para ver cómo ha cambiado.</p>
+        
+        <select id="selectorTendencia" aria-label="Seleccionar indicador de tendencia"></select>
+        
+        <div id="aclaracionGrafico" class="chart-aclaracion"></div>
+        <div id="chipContenedor"></div>
+
+        <div class="chart-box" id="chartContainer">
+          <canvas id="graficoTendencias"></canvas>
+          <div id="bigNumberBox" class="big-number-wrap oculto"></div>
+          <div id="fallbackGrafico" class="chart-fallback oculto"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Casos más graves</h2>
+        <p class="sub" style="font-size:0.85rem; margin-bottom:10px">Las cifras más altas documentadas en los informes. Ojo: representan casos reales de personas o gasto militar.</p>
+        <div id="casosGraves" class="grid" style="gap:12px;"></div>
+      </div>
+    </div>
+
+    <div class="card mt">
+      <h2>Brechas y debilidades</h2>
+      <div id="listaBrechas" class="grid cols-2"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       JUEGO 1: DETECTOR DE BRECHAS
+       ============================================================ -->
+  <section id="vista-juego1" class="vista" aria-labelledby="titulo-j1">
+    <div class="actividad">
+      <header>
+        <div>
+          <h2 id="titulo-j1">🔍 Detector de Brechas</h2>
+          <p class="sub">El póster oficial promete protección, pero la realidad tiene fallas. Haz clic en las 3 alertas flotantes para descubrir qué está fallando.</p>
+        </div>
+        <button class="btn secundario" id="reiniciarJ1">↻ Reiniciar</button>
+      </header>
+
+      <div class="poster-wrap" id="posterJ1">
+        <h3 style="color:var(--texto-suave)">PROTECCIÓN GARANTIZADA</h3>
+        <p style="color:var(--texto-suave);font-size:.8rem;max-width:400px">Los Estados Miembros se comprometen a proteger a las mujeres y niñas en conflictos armados...</p>
+        <div id="alertasJ1" class="mt"></div>
+      </div>
+      
+      <div id="resultadoJ1" class="feedback oculto"></div>
+      <div id="citaJ1" class="card mt oculto" style="border-left:4px solid var(--ambar)"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       JUEGO 2: EL LABERINTO DE LA JUSTICIA
+       ============================================================ -->
+  <section id="vista-juego2" class="vista" aria-labelledby="titulo-j2">
+    <div class="actividad">
+      <header>
+        <div>
+          <h2 id="titulo-j2">🧩 El Laberinto de la Justicia</h2>
+          <p class="sub">Eres una víctima buscando justicia. Elige un camino y descubre qué barreras reales te impiden avanzar, según los informes de la ONU.</p>
+        </div>
+        <button class="btn secundario" id="reiniciarJ2">↻ Reiniciar</button>
+      </header>
+
+      <div id="contenedorJ2" class="laberinto"></div>
+      <div id="resultadoJ2" class="feedback oculto mt"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       JUEGO 3: ¿QUIÉN DOCUMENTA QUÉ?
+       ============================================================ -->
+  <section id="vista-juego3" class="vista" aria-labelledby="titulo-j3">
+    <div class="actividad">
+      <header>
+        <div>
+          <h2 id="titulo-j3">📁 ¿Quién documenta qué?</h2>
+          <p class="sub">Arrastra cada reporte de la ONU a la misión que lo documentó (UNAMA, BINUH o MONUSCO).</p>
+        </div>
+        <button class="btn secundario" id="reiniciarJ3">↻ Reiniciar</button>
+      </header>
+
+      <div class="buzones" id="buzonesJ3">
+        <div class="buzon" data-mision="UNAMA">UNAMA<br><small>Afganistán</small></div>
+        <div class="buzon" data-mision="BINUH">BINUH<br><small>Haití</small></div>
+        <div class="buzon" data-mision="MONUSCO">MONUSCO<br><small>R. D. Congo</small></div>
+      </div>
+
+      <div id="reportesJ3"></div>
+      <div id="resultadoJ3" class="feedback oculto mt"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       JUEGO 4: VERDADERO O FALSO
+       ============================================================ -->
+  <section id="vista-juego4" class="vista" aria-labelledby="titulo-j4">
+    <div class="actividad">
+      <header>
+        <div>
+          <h2 id="titulo-j4">🤔 El Verdadero o Falso de los Datos</h2>
+          <p class="sub">¿Crees que conoces la magnitud del problema? Lee la afirmación y decide si es Verdadera o Falsa.</p>
+        </div>
+        <button class="btn secundario" id="reiniciarJ4">↻ Reiniciar</button>
+      </header>
+
+      <div class="card vf-container">
+        <div id="progresoJ4" class="progreso" style="max-width:300px;margin:0 auto 20px"><span style="width:0%"></span></div>
+        <div class="vf-afirmacion" id="afirmacionJ4">Cargando...</div>
+        <div class="vf-botones">
+          <button class="btn-vf btn-v" id="btnVerdaderoJ4">✅ Verdadero</button>
+          <button class="btn-vf btn-f" id="btnFalsoJ4">❌ Falso</button>
+        </div>
+        <div id="feedbackJ4" class="feedback oculto" style="text-align:left"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       JUEGO 5: MAPA DE TIPOS DE VIOLENCIA
+       ============================================================ -->
+  <section id="vista-juego5" class="vista" aria-labelledby="titulo-j5">
+    <div class="actividad">
+      <header>
+        <div>
+          <h2 id="titulo-j5">☁️ Mapa de Tipos de Violencia</h2>
+          <p class="sub">La violencia sexual no es solo violación. Haz clic en las palabras para descubrir los diferentes tipos documentados y los países afectados.</p>
+        </div>
+        <button class="btn secundario" id="reiniciarJ5">↻ Reiniciar</button>
+      </header>
+
+      <div class="nube-wrap" id="nubeJ5"></div>
+      <div id="detalleJ5" class="card oculto" style="border-left:4px solid var(--turquesa); margin-top:20px;"></div>
+      <div id="resultadoJ5" class="feedback oculto mt"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="app-footer">
+  <div class="inner">
+    <strong>Fuente de los datos:</strong> Informes del Secretario General de las Naciones Unidas S/2025/389, S/2025/556 y S/2026/321.
+    <span>Proyecto educativo interactivo · Las citas son textuales de los documentos originales.</span>
+  </div>
+</footer>
+
+<!-- ============================================================
+     DATOS (JSON incrustado)
+     ============================================================ -->
+<script id="datos-json" type="application/json">
+{
+  "fuentes": [
+    {"id":"doc-001","simbolo":"S/2025/389","tipo":"informe","fecha":"2025-07-15","titulo":"Violencia sexual relacionada con los conflictos","organo":"Secretario General","idioma_original":"inglés","periodo_cubierto":"enero-diciembre 2024"},
+    {"id":"doc-002","simbolo":"S/2025/556","tipo":"informe","fecha":"2025-09-05","titulo":"Las mujeres y la paz y la seguridad","organo":"Secretario General","idioma_original":"inglés","periodo_cubierto":"2024-2025"},
+    {"id":"doc-003","simbolo":"S/2026/321","tipo":"informe","fecha":"2026","titulo":"La violencia sexual relacionada con los conflictos","organo":"Secretario General","idioma_original":"español (traducción)","periodo_cubierto":"enero-diciembre 2025"}
+  ],
+  "paises": [
+    {"nombre":"Afganistán","rol":"país afectado / perpetrador señalado (autoridades de facto talibanas)","menciones":[{"fuente_id":"doc-001","cita":"En 2024, la UNAMA verificó distintos incidentes de violencia sexual, tales como violaciones y matrimonios forzados, que se habían cometido contra cinco mujeres, cuatro niñas y dos niños y en los que estaban implicados algunos funcionarios de facto y hombres no identificados.","tipo_violencia":"violación, matrimonio forzado"},{"fuente_id":"doc-003","cita":"En 2025, la UNAMA verificó distintos incidentes de violencia sexual, como violaciones, violaciones colectivas, matrimonios forzados y desnudez forzada, que se habían cometido contra 15 mujeres y 6 niñas y fueron atribuidos a funcionarios de facto, incluidas las fuerzas de seguridad de facto.","tipo_violencia":"violación, violación colectiva, matrimonio forzado, desnudez forzada"}]},
+    {"nombre":"República Centroafricana","rol":"país afectado / perpetradores estatales y no estatales señalados","menciones":[{"fuente_id":"doc-001","cita":"La MINUSCA documentó varios casos de violencia sexual relacionada con el conflicto (violaciones individuales y colectivas, matrimonios forzados y esclavitud sexual) que afectaron a 215 mujeres, 191 niñas y 7 hombres. ... 3R, otras facciones de la CPC, así como el recién formado CPC-F, y UPC fueron los principales autores.","tipo_violencia":"violación individual y colectiva, matrimonio forzado, esclavitud sexual"},{"fuente_id":"doc-003","cita":"En 2025, la MINUSCA documentó varios casos de violencia sexual relacionada con el conflicto (violaciones individuales y colectivas, matrimonios forzados y esclavitud sexual) que afectaron a 239 mujeres, 217 niñas, 30 hombres y 7 niños.","tipo_violencia":"violación individual y colectiva, matrimonio forzado, esclavitud sexual"}]},
+    {"nombre":"Colombia","rol":"país afectado / perpetradores estatales y no estatales señalados / avances en justicia transicional","menciones":[{"fuente_id":"doc-001","cita":"La Unidad para las Víctimas registró casos de violencia sexual relacionada con el conflicto que afectaron a 1.009 mujeres, 73 hombres y 15 personas con orientación sexual e identidad de género diversas.","tipo_violencia":"violencia sexual en conflicto, reclutamiento y explotación sexual de menores"},{"fuente_id":"doc-003","cita":"La Unidad para las Víctimas registró casos de violencia sexual relacionada con los conflictos que afectaron a 4.113 personas; 753 de ellos tuvieron lugar en 2025.","tipo_violencia":"violencia sexual en conflicto, trata, esclavitud sexual, matrimonio forzado"}]},
+    {"nombre":"República Democrática del Congo","rol":"país afectado / perpetradores estatales y no estatales señalados","menciones":[{"fuente_id":"doc-001","cita":"La MONUSCO documentó 823 casos de violaciones individuales y colectivas, esclavitud sexual y matrimonios forzados ... que afectaron a 416 mujeres, 391 niñas, 7 niños y 9 hombres.","tipo_violencia":"violación individual y colectiva, esclavitud sexual, matrimonio forzado"},{"fuente_id":"doc-003","cita":"En 2025 la MONUSCO verificó 1.534 casos de violencia sexual relacionada con los conflictos (un aumento del 86 % con respecto a 2024).","tipo_violencia":"violación, violación colectiva, esclavitud sexual, matrimonio forzado"}]},
+    {"nombre":"Israel y el Territorio Palestino Ocupado","rol":"país afectado / perpetradores estatales y no estatales señalados","menciones":[{"fuente_id":"doc-001","cita":"Las Naciones Unidas verificaron 12 incidentes de violencia sexual relacionada con el conflicto cometidos por las fuerzas armadas y de seguridad israelíes ... contra siete hombres palestinos en las cárceles de Néguev/Ketziot y Ofer y en el centro de detención de Etzion.","tipo_violencia":"violencia sexual en detención, tortura sexualizada, desnudez forzada"},{"fuente_id":"doc-003","cita":"En 2025, las Naciones Unidas verificaron múltiples casos de violencia sexual relacionada con el conflicto, incluida la utilizada como forma de tortura, infligida a 14 hombres, 7 mujeres, 9 niños y 1 niña de la Franja de Gaza y la Ribera Occidental.","tipo_violencia":"violación, violación con objetos, violación colectiva, tortura sexualizada, desnudez forzada"}]},
+    {"nombre":"Libia","rol":"país afectado / perpetradores estatales y no estatales señalados","menciones":[{"fuente_id":"doc-001","cita":"La UNSMIL verificó varios casos de violencia sexual relacionada con el conflicto que afectaron a 20 mujeres migrantes y solicitantes de asilo y a 2 niñas libias.","tipo_violencia":"violación, trata con fines de explotación sexual, violencia sexual en detención"},{"fuente_id":"doc-003","cita":"En 2025, la UNSMIL verificó varios casos de violencia sexual relacionada con el conflicto que afectaron a 45 mujeres y niñas migrantes y refugiadas.","tipo_violencia":"violación, explotación sexual, violencia sexual en detención"}]},
+    {"nombre":"Malí","rol":"país afectado / perpetradores no estatales señalados","menciones":[{"fuente_id":"doc-001","cita":"Las Naciones Unidas consiguieron confirmar que se había violado a 32 niñas. Además, los proveedores de servicios humanitarios registraron 157 casos de violencia sexual cometida por actores armados.","tipo_violencia":"violación individual y colectiva, matrimonio forzado, esclavitud sexual"},{"fuente_id":"doc-003","cita":"Las Naciones Unidas verificaron casos de violencia sexual que afectaron a 22 niñas de entre 14 y 17 años, perpetrados por grupos armados como Jama‘a Nusrat ul-Islam wa al-Muslimin y la Provincia del Sahel del Estado Islámico.","tipo_violencia":"violación, esclavitud sexual, agresión sexual"}]},
+    {"nombre":"Myanmar","rol":"país afectado / perpetrador estatal señalado (fuerzas armadas)","menciones":[{"fuente_id":"doc-001","cita":"En 2024 siguieron denunciándose casos de violencia sexual relacionada con el conflicto contra mujeres, hombres, niñas, niños y personas LGBTQI, cometidos principalmente por las fuerzas armadas del país.","tipo_violencia":"violación, violación con objetos, violencia sexual en detención, esclavitud sexual"},{"fuente_id":"doc-003","cita":"Persistió el uso generalizado y sistemático de la violencia sexual como táctica de guerra y represión política por parte del ejército de Myanmar.","tipo_violencia":"violación, violación colectiva, esclavitud sexual, violencia sexual en detención"}]},
+    {"nombre":"Somalia","rol":"país afectado / perpetradores estatales y no estatales señalados","menciones":[{"fuente_id":"doc-001","cita":"La UNSOM y, posteriormente, la UNTMIS confirmaron los casos de violencia sexual relacionada con el conflicto de 265 niñas, 24 mujeres y 2 niños. La mayoría de los incidentes se atribuyeron a Al-Shabaab.","tipo_violencia":"violación individual y colectiva, matrimonio forzado"},{"fuente_id":"doc-003","cita":"En 2025, la UNTMIS verificó casos de violencia sexual relacionada con el conflicto, entre ellos violaciones, violaciones colectivas, matrimonios forzados, agresiones sexuales y embarazos forzados, que afectaron a 201 niñas y 21 mujeres.","tipo_violencia":"violación, violación colectiva, matrimonio forzado, agresión sexual, embarazo forzado"}]},
+    {"nombre":"Sudán del Sur","rol":"país afectado / perpetradores estatales y no estatales señalados","menciones":[{"fuente_id":"doc-001","cita":"La UNMISS documentó incidentes de violencia sexual relacionada con el conflicto, entre ellas violaciones individuales y colectivas, sometimiento a esclavitud sexual, y abortos y matrimonios forzados, que afectaron a 150 mujeres, 101 niñas, 7 hombres y 2 niños.","tipo_violencia":"violación individual y colectiva, esclavitud sexual, aborto forzado, matrimonio forzado"}]},
+    {"nombre":"Sudán","rol":"país afectado / perpetrador no estatal señalado (Fuerzas de Apoyo Rápido)","menciones":[{"fuente_id":"doc-001","cita":"Las Naciones Unidas documentaron varios casos de violencia sexual ... cometidos contra 90 mujeres, 36 niñas, 4 hombres y 1 niño ... En la mayoría de los casos habían participado elementos de las Fuerzas de Apoyo Rápido.","tipo_violencia":"violación individual y colectiva, secuestro con fines de explotación sexual"},{"fuente_id":"doc-003","cita":"En 2025, las Naciones Unidas documentaron casos ... perpetrados contra 275 mujeres, 218 niñas, 5 niños y 3 hombres ... En la mayoría de los casos, se atribuyó la responsabilidad a las Fuerzas de Apoyo Rápido y las milicias armadas aliadas.","tipo_violencia":"violación, violación colectiva, esclavitud sexual, matrimonio forzado, embarazo forzado"}]},
+    {"nombre":"República Árabe Siria","rol":"país afectado / perpetradores estatales y no estatales señalados","menciones":[{"fuente_id":"doc-001","cita":"La Comisión Internacional Independiente de Investigación sobre la República Árabe Siria informó de que se habían cometido violaciones en algunos centros de detención.","tipo_violencia":"violación, violencia sexual en detención, tortura sexualizada"},{"fuente_id":"doc-003","cita":"En 2025, tras la puesta en libertad de miles de personas de los centros de detención después del fin del anterior régimen sirio, las Naciones Unidas han documentado patrones de violación y violencia sexual que se prolongaron durante años.","tipo_violencia":"violación, tortura sexualizada, matrimonio forzado"}]},
+    {"nombre":"Ucrania","rol":"país afectado / perpetrador estatal señalado (Federación de Rusia)","menciones":[{"fuente_id":"doc-001","cita":"La misión de vigilancia de los derechos humanos en Ucrania documentó 209 incidentes de violencia sexual relacionada con el conflicto ... cometidos contra 156 hombres, 46 mujeres, 6 niñas y 1 niño por las fuerzas armadas rusas.","tipo_violencia":"violación, amenaza de violación y castración, mutilación genital, descargas eléctricas, desnudez forzada"},{"fuente_id":"doc-003","cita":"La misión de vigilancia de los derechos humanos en Ucrania verificó 310 casos de violencia sexual relacionada con el conflicto ... que afectaron a 280 hombres, 26 mujeres y 4 niñas.","tipo_violencia":"violación, violación colectiva, mutilación genital, descargas eléctricas, desnudez forzada"}]},
+    {"nombre":"Yemen","rol":"país afectado / perpetrador no estatal señalado (huzíes)","menciones":[{"fuente_id":"doc-001","cita":"Las Naciones Unidas confirmaron que seis niños y cinco niñas habían sido violados y sometidos a otras formas de violencia sexual.","tipo_violencia":"violación, violencia sexual en detención, matrimonio infantil forzado"},{"fuente_id":"doc-003","cita":"La violencia sexual se utilizó de forma estratégica para desmoralizar a los disidentes, por ejemplo, desnudando a las mujeres de la familia delante de los detenidos varones.","tipo_violencia":"violación, tortura sexualizada, desnudez forzada, matrimonio infantil forzado"}]},
+    {"nombre":"Haití","rol":"país afectado / perpetrador no estatal señalado (bandas criminales)","menciones":[{"fuente_id":"doc-001","cita":"La BINUH verificó distintos casos de violencia sexual que afectaron a 523 niñas, 142 mujeres y 43 niños.","tipo_violencia":"violación individual y colectiva, violencia sexual en desplazamiento"},{"fuente_id":"doc-003","cita":"La BINUH verificó casos que afectaban a 1.668 mujeres, 187 niñas, 2 hombres y seis niños, lo que supone un notable aumento del 163 % en comparación con 2024.","tipo_violencia":"violación colectiva, violación, esclavitud sexual"}]},
+    {"nombre":"Nigeria","rol":"país afectado / perpetrador no estatal señalado","menciones":[{"fuente_id":"doc-001","cita":"Las Naciones Unidas verificaron distintos incidentes de violación, matrimonio forzado y otras formas de violencia sexual ... cometidos contra 412 niñas y 7 niños, en la mayoría de los cuales estaban implicados miembros de Boko Haram y la ISWAP.","tipo_violencia":"violación, matrimonio forzado, violencia sexual tras secuestro"},{"fuente_id":"doc-003","cita":"Las Naciones Unidas confirmaron que 324 niñas y 7 niños habían sido violados y sometidos a otras formas de violencia sexual.","tipo_violencia":"violación, matrimonio forzado"}]},
+    {"nombre":"Etiopía","rol":"país afectado / perpetradores estatales y no estatales señalados","menciones":[{"fuente_id":"doc-001","cita":"Las Naciones Unidas confirmaron distintos episodios de violencia sexual relacionada con el conflicto en las regiones de Amara y Oromiya occidental.","tipo_violencia":"violencia sexual en conflicto"},{"fuente_id":"doc-003","cita":"Las Naciones Unidas verificaron que se habían producido actos de violencia sexual (entre ellos violaciones y violaciones colectivas) contra siete mujeres y siete niñas en Oromiya y Tigré.","tipo_violencia":"violación, violación colectiva, introducción de objetos, transmisión intencionada del VIH"}]},
+    {"nombre":"Bosnia y Herzegovina","rol":"país en posconflicto / acceso a reparaciones","menciones":[{"fuente_id":"doc-001","cita":"las reparaciones seguían siendo desiguales e insuficientes y dependían de normas distintas según el lugar de residencia de los supervivientes.","tipo_violencia":"violencia sexual en conflicto (legado)"},{"fuente_id":"doc-003","cita":"de las entre 20.000 y 50.000 víctimas estimadas de violencia sexual relacionada con el conflicto, unas 1.000 han recibido una indemnización.","tipo_violencia":"violencia sexual en conflicto (legado)"}]},
+    {"nombre":"Kosovo","rol":"país en posconflicto / acceso a reparaciones","menciones":[{"fuente_id":"doc-001","cita":"una investigación sobre las consecuencias a largo plazo de la violencia sexual en Kosovo reveló que el 86 % de las personas supervivientes seguían teniendo trastorno de estrés postraumático 25 años después del conflicto.","tipo_violencia":"violencia sexual en conflicto (legado)"},{"fuente_id":"doc-003","cita":"la comisión de indemnizaciones de Kosovo ha aprobado 1.884 solicitudes, 77 de ellas en 2025.","tipo_violencia":"violencia sexual en conflicto (legado)"}]},
+    {"nombre":"Iraq","rol":"país en posconflicto / acceso a reparaciones / perpetrador no estatal (Dáesh) señalado","menciones":[{"fuente_id":"doc-001","cita":"En el Iraq, el Gobierno siguió desembolsando indemnizaciones con arreglo a la Ley de Apoyo a las Supervivientes Yazídies ... había aprobado un total de 2.276 solicitudes.","tipo_violencia":"esclavitud sexual, secuestro, violencia sexual en conflicto (legado)"},{"fuente_id":"doc-003","cita":"se aprobaron 2.587 solicitudes de indemnización, de las cuales 1.341 correspondían a supervivientes de la violencia sexual.","tipo_violencia":"esclavitud sexual, secuestro, violencia sexual en conflicto (legado)"}]},
+    {"nombre":"Nepal","rol":"país en posconflicto / justicia transicional","menciones":[{"fuente_id":"doc-001","cita":"el Parlamento Federal aprobó en agosto una modificación de la Ley de Justicia de Transición ... Se eliminó el plazo de prescripción para presentar casos relacionados con la violencia sexual.","tipo_violencia":"violencia sexual en conflicto (legado)"},{"fuente_id":"doc-003","cita":"la reapertura del plazo para la presentación de denuncias dio lugar a la presentación de más de 4.000 denuncias relacionadas con la violencia sexual.","tipo_violencia":"violencia sexual en conflicto (legado)"}]},
+    {"nombre":"Sri Lanka","rol":"país en posconflicto / justicia transicional","menciones":[{"fuente_id":"doc-001","cita":"hubo denuncias de violaciones de los derechos humanos, también de violencia sexual contra personas tamiles por parte de las fuerzas de seguridad.","tipo_violencia":"violencia sexual en conflicto (legado)"},{"fuente_id":"doc-003","cita":"La violencia sexual relacionada con el conflicto cometida durante el conflicto en Sri Lanka siguió quedando impune.","tipo_violencia":"violencia sexual en conflicto (legado)"}]}
+  ],
+  "tipos_violencia": [
+    {"categoria":"Violación","contexto":"conflicto activo, detención, desplazamiento","casos_reportados":[{"fuente_id":"doc-001","pais":"República Democrática del Congo","casos":823,"detalle":"violaciones individuales y colectivas documentadas por MONUSCO en 2024"},{"fuente_id":"doc-003","pais":"Sudán","casos":501,"detalle":"275 mujeres, 218 niñas, 5 niños y 3 hombres documentados en 2025"},{"fuente_id":"doc-003","pais":"Ucrania","casos":310,"detalle":"casos verificados en 2025, 232 con múltiples formas de violencia sexual"}]},
+    {"categoria":"Violación colectiva","contexto":"conflicto activo, ataques a aldeas, detención","casos_reportados":[{"fuente_id":"doc-003","pais":"Haití","casos":null,"detalle":"La violación colectiva representó el 77 % de las agresiones verificadas por BINUH en 2025"},{"fuente_id":"doc-003","pais":"Sudán","casos":null,"detalle":"al menos 77 mujeres, 28 niñas y 3 niños sometidos a violaciones y violaciones colectivas durante ofensiva contra campamento de Zamzam"}]},
+    {"categoria":"Esclavitud sexual","contexto":"conflicto activo, secuestro, detención","casos_reportados":[{"fuente_id":"doc-001","pais":"Iraq","casos":null,"detalle":"mujeres y niñas yazidíes secuestradas en 2014 y vendidas múltiples veces como esclavas sexuales"},{"fuente_id":"doc-003","pais":"República Democrática del Congo","casos":null,"detalle":"casos documentados por MONUSCO en 2025, incluyendo esclavitud sexual"}]},
+    {"categoria":"Matrimonio forzado","contexto":"conflicto activo, secuestro, desplazamiento","casos_reportados":[{"fuente_id":"doc-001","pais":"Somalia","casos":null,"detalle":"matrimonios forzados como forma de compensar a combatientes de Al-Shabaab"},{"fuente_id":"doc-003","pais":"Nigeria","casos":null,"detalle":"niñas obligadas a contraer matrimonio tras secuestros por grupos armados"}]},
+    {"categoria":"Embarazo forzado","contexto":"conflicto activo, violación","casos_reportados":[{"fuente_id":"doc-003","pais":"Somalia","casos":null,"detalle":"casos verificados por UNTMIS en 2025 incluyendo embarazos forzados"},{"fuente_id":"doc-003","pais":"Sudán","casos":null,"detalle":"embarazos forzados documentados como parte de violencia sexual relacionada con el conflicto"}]},
+    {"categoria":"Mutilación genital","contexto":"detención, tortura","casos_reportados":[{"fuente_id":"doc-001","pais":"Libia","casos":null,"detalle":"algunos elementos del grupo armado Kaniyat mutilaron genitales masculinos como método de tortura"},{"fuente_id":"doc-003","pais":"Ucrania","casos":null,"detalle":"casos de mutilación genital documentados por la misión de vigilancia de derechos humanos"}]},
+    {"categoria":"Violencia sexual en detención / tortura sexualizada","contexto":"detención, interrogatorios","casos_reportados":[{"fuente_id":"doc-001","pais":"Israel y el Territorio Palestino Ocupado","casos":12,"detalle":"incidentes verificados por Naciones Unidas contra siete hombres palestinos en cárceles israelíes"},{"fuente_id":"doc-003","pais":"Ucrania","casos":null,"detalle":"violencia sexual contra prisioneros de guerra y detenidos civiles, incluyendo descargas eléctricas en genitales"}]},
+    {"categoria":"Trata con fines de explotación sexual","contexto":"conflicto, desplazamiento, migración","casos_reportados":[{"fuente_id":"doc-001","pais":"Libia","casos":null,"detalle":"mujeres migrantes y refugiadas sometidas a trata con fines de explotación sexual en centros de detención"},{"fuente_id":"doc-003","pais":"Haití","casos":null,"detalle":"esclavitud y explotación sexuales como práctica sistemática por parte de bandas"}]},
+    {"categoria":"Desnudez forzada","contexto":"detención, espacios públicos","casos_reportados":[{"fuente_id":"doc-001","pais":"Israel y el Territorio Palestino Ocupado","casos":null,"detalle":"se obligó a hombres, mujeres, niños y niñas palestinos a permanecer desnudos durante largos períodos"},{"fuente_id":"doc-003","pais":"Afganistán","casos":null,"detalle":"incidentes de desnudez forzada verificados por UNAMA en 2025"}]}
+  ],
+  "datos_cuantitativos": [
+    {"indicador":"Aumento de casos documentados de violencia sexual relacionada con conflictos en dos años","valor":87,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"Aumento del 87 % en dos años según el informe S/2025/556"},
+    {"indicador":"Casos de violencia sexual en Kivu del Norte (RDC) registrados por proveedores de servicios","valor":38000,"unidad":"casos","fuente_id":"doc-002","fecha_dato":"primeros meses de 2025","nota":"Cifra calificada como alarmante por prestadores de servicios"},
+    {"indicador":"Casos de violación registrados en Sudán contra niñas y niños","valor":221,"unidad":"casos","fuente_id":"doc-001","fecha_dato":"2024","nota":"147 niñas y 74 niños; 16 % de supervivientes menores de 5 años"},
+    {"indicador":"Aumento de la demanda de apoyo vital para supervivientes de violencia sexual en Sudán","valor":288,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2023-2024","nota":"Más de 12 millones de mujeres y niñas en riesgo"},
+    {"indicador":"Casos verificados por BINUH en Haití","valor":1857,"unidad":"casos","fuente_id":"doc-003","fecha_dato":"2025","nota":"1.668 mujeres, 187 niñas, 2 hombres y 6 niños; aumento del 163 % respecto a 2024"},
+    {"indicador":"Casos verificados por MONUSCO en RDC","valor":1534,"unidad":"casos","fuente_id":"doc-003","fecha_dato":"2025","nota":"Aumento del 86 % respecto a 2024; 854 mujeres, 672 niñas, 4 hombres y 4 niños"},
+    {"indicador":"Casos de violencia sexual en RDC registrados por proveedores de servicios (enero-septiembre)","valor":90199,"unidad":"casos","fuente_id":"doc-003","fecha_dato":"2025","nota":"Incluye violaciones perpetradas principalmente por grupos armados"},
+    {"indicador":"Casos verificados por la misión de vigilancia de derechos humanos en Ucrania","valor":310,"unidad":"casos","fuente_id":"doc-003","fecha_dato":"2025","nota":"280 hombres, 26 mujeres y 4 niñas; 74,83 % con múltiples formas de violencia sexual"},
+    {"indicador":"Casos verificados por UNAMA en Afganistán","valor":21,"unidad":"casos","fuente_id":"doc-003","fecha_dato":"2025","nota":"15 mujeres y 6 niñas; incluye violaciones, violaciones colectivas, matrimonios forzados y desnudez forzada"},
+    {"indicador":"Casos verificados por UNMISS en Sudán del Sur","valor":260,"unidad":"casos","fuente_id":"doc-001","fecha_dato":"2024","nota":"150 mujeres, 101 niñas, 7 hombres y 2 niños"},
+    {"indicador":"Casos verificados por UNTMIS en Somalia","valor":222,"unidad":"casos","fuente_id":"doc-003","fecha_dato":"2025","nota":"201 niñas y 21 mujeres; incluye violaciones, violaciones colectivas, matrimonios forzados, agresiones sexuales y embarazos forzados"},
+    {"indicador":"Casos verificados por MINUSCA en República Centroafricana","valor":493,"unidad":"casos","fuente_id":"doc-003","fecha_dato":"2025","nota":"239 mujeres, 217 niñas, 30 hombres y 7 niños"},
+    {"indicador":"Casos verificados por UNSMIL en Libia","valor":45,"unidad":"casos","fuente_id":"doc-003","fecha_dato":"2025","nota":"45 mujeres y niñas migrantes y refugiadas"},
+    {"indicador":"Mujeres y niñas que viven a menos de 50 km de un conflicto letal","valor":676,"unidad":"millones","fuente_id":"doc-002","fecha_dato":"2024","nota":"Cifra y porcentaje más altos registrados desde la década de 1990"},
+    {"indicador":"Mujeres y niños muertos en conflictos armados (aumento entre bienios)","valor":4,"unidad":"multiplicador (se cuadruplicó)","fuente_id":"doc-002","fecha_dato":"2023-2024","nota":"7 de cada 10 mujeres muertas en conflictos en todo el mundo murieron en Gaza"},
+    {"indicador":"Mujeres y niñas afectadas por recortes de financiación en Ucrania","valor":640000,"unidad":"personas","fuente_id":"doc-002","fecha_dato":"2025","nota":"Afectadas por recortes en financiación para apoyo psicosocial, servicios de violencia de género y espacios seguros"},
+    {"indicador":"Mujeres y niñas refugiadas afectadas por recortes de financiación del ACNUR en Sudán del Sur","valor":80000,"unidad":"personas","fuente_id":"doc-002","fecha_dato":"2025","nota":"Cifra potencial"},
+    {"indicador":"Espacios seguros cerrados en Yemen por suspensión de financiación","valor":22,"unidad":"espacios","fuente_id":"doc-002","fecha_dato":"principios de 2025","nota":"Privó de servicios a más de 11.000 mujeres y niñas en zonas de alto riesgo"},
+    {"indicador":"Centros de atención integral y espacios seguros cerrados en Somalia","valor":120,"unidad":"centros","fuente_id":"doc-003","fecha_dato":"2025","nota":"Solo quedan 80 en funcionamiento; disminución del 42 % en casos denunciados"},
+    {"indicador":"Centros de salud cerrados en Afganistán","valor":400,"unidad":"centros","fuente_id":"doc-003","fecha_dato":"julio 2025","nota":"Además de cientos de puntos de atención para violencia de género"},
+    {"indicador":"Solicitudes de indemnización aprobadas en Iraq (Ley de Apoyo a las Supervivientes Yazidíes)","valor":2587,"unidad":"solicitudes","fuente_id":"doc-003","fecha_dato":"2025","nota":"1.341 correspondían a supervivientes de violencia sexual"},
+    {"indicador":"Yazidíes secuestrados por Dáesh que siguen desaparecidos","valor":2550,"unidad":"personas","fuente_id":"doc-003","fecha_dato":"2025","nota":"1.221 mujeres y 1.329 hombres"},
+    {"indicador":"Solicitudes aprobadas por la comisión de indemnizaciones de Kosovo","valor":1884,"unidad":"solicitudes","fuente_id":"doc-003","fecha_dato":"2025","nota":"77 aprobadas en 2025; mandato prorrogado hasta 2028"},
+    {"indicador":"Víctimas de violencia sexual en Bosnia y Herzegovina que han recibido indemnización","valor":1000,"unidad":"personas","fuente_id":"doc-003","fecha_dato":"2025","nota":"De una estimación de 20.000 a 50.000 víctimas"},
+    {"indicador":"Denuncias de violencia sexual presentadas en Nepal tras reapertura de plazo","valor":4000,"unidad":"denuncias","fuente_id":"doc-003","fecha_dato":"2025","nota":"Plazo único de tres meses criticado por excluir a muchas víctimas"},
+    {"indicador":"Mujeres negociadoras en procesos de paz dirigidos o apoyados por la ONU","valor":18,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"Descenso respecto al 19 % en 2023 y 23 % en 2020"},
+    {"indicador":"Acuerdos de paz con disposiciones de género","valor":31,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"11 de 36 acuerdos; solo 2 mencionaron violencia de género"},
+    {"indicador":"Mujeres en el personal uniformado de operaciones de paz","valor":10,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"Frente a poco más del 3 % hace 15 años"},
+    {"indicador":"Mujeres en fuerzas armadas (promedio en países que reportaron)","valor":12,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"15 % fuerzas aéreas, 14 % marina, 16 % gendarmería; 97 % de oficiales generales son hombres"},
+    {"indicador":"Gasto militar mundial","valor":2.7,"unidad":"billones de dólares","fuente_id":"doc-002","fecha_dato":"2024","nota":"Aumento del 9,4 % en términos reales respecto a 2023; mayor aumento interanual desde el final de la Guerra Fría"},
+    {"indicador":"Países que aumentaron gasto militar","valor":100,"unidad":"países","fuente_id":"doc-002","fecha_dato":"2024","nota":"Más de 100 países"},
+    {"indicador":"Asistencia oficial para el desarrollo bilateral con igualdad de género como objetivo principal","valor":5.2,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2022-2023","nota":"2.500 millones de dólares; ligera disminución frente al 5,4 % anterior"},
+    {"indicador":"Ayuda bilateral a organizaciones de mujeres en contextos de fragilidad","valor":186,"unidad":"millones de dólares/año","fuente_id":"doc-002","fecha_dato":"2022-2023","nota":"0,4 % de la ayuda bilateral; por debajo del 1 % recomendado por la ONU"},
+    {"indicador":"Disminución de la ayuda internacional de donantes oficiales","valor":7.1,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"Primera disminución en seis años"},
+    {"indicador":"Organizaciones de mujeres que prevén cerrar en seis meses por recortes de financiación","valor":45,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"marzo 2025","nota":"Encuesta de ONU-Mujeres; 90 % afirmó que sus operaciones se vieron afectadas económicamente"},
+    {"indicador":"Presupuesto del Fondo para la Consolidación de la Paz aprobado","valor":116,"unidad":"millones de dólares","fuente_id":"doc-002","fecha_dato":"2024","nota":"Frente a 202 millones en 2023; 49,9 millones (43 %) para igualdad de género"},
+    {"indicador":"Financiación de fondos mancomunados para países concretos a organizaciones dirigidas por mujeres","valor":11,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"101,6 millones de dólares; aumento desde el 7 %; valor de referencia del 15 %"},
+    {"indicador":"Asignaciones del Fondo Humanitario para el Sudán a organizaciones dirigidas por mujeres","valor":3,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"Ejemplo de variación entre países"},
+    {"indicador":"Financiación recaudada por el Fondo para la Mujer, la Paz y la Acción Humanitaria","valor":65.9,"unidad":"millones de dólares","fuente_id":"doc-002","fecha_dato":"2024","nota":"Mayor cantidad anual desde la creación del Fondo en 2016; más de 1.600 organizaciones apoyadas en 49 países"},
+    {"indicador":"Mujeres de la sociedad civil que informaron al Consejo de Seguridad","valor":338,"unidad":"personas","fuente_id":"doc-002","fecha_dato":"última década","nota":"Frente a solo 17 entre 2000 y 2014; paridad de género entre las 464 personas invitadas en 2024"},
+    {"indicador":"Mujeres de la sociedad civil que denunciaron represalias tras informar al Consejo de Seguridad","valor":7,"unidad":"personas","fuente_id":"doc-002","fecha_dato":"2024","nota":"De 25 encuestadas; incluye campañas de desprestigio, ciberataques y allanamientos"},
+    {"indicador":"Partes en conflictos incluidas en la lista del anexo del Secretario General","valor":77,"unidad":"partes","fuente_id":"doc-003","fecha_dato":"2026","nota":"Frente a 63 en el informe anterior (S/2025/389)"},
+    {"indicador":"Partes incluidas en el anexo que son agresores reincidentes","valor":65,"unidad":"porcentaje","fuente_id":"doc-003","fecha_dato":"2026","nota":"Figuran en el anexo durante cinco o más años sin medidas correctoras"},
+    {"indicador":"Regímenes de sanciones de países concretos que incluyen violencia sexual como motivo","valor":8,"unidad":"regímenes","fuente_id":"doc-003","fecha_dato":"2026","nota":"Incluye sanciones por violencia sexual como táctica terrorista"},
+    {"indicador":"Mujeres jefas de Estado o de Gobierno en el mundo","valor":29,"unidad":"países","fuente_id":"doc-002","fecha_dato":"2025","nota":"102 países nunca han tenido una mujer al frente"},
+    {"indicador":"Mujeres ministras en países afectados por conflictos","valor":21,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2025","nota":"Frente al 23 % global; Yemen no tiene mujeres en el Gabinete"},
+    {"indicador":"Planes de acción nacionales sobre mujeres, paz y seguridad aprobados","valor":113,"unidad":"planes","fuente_id":"doc-002","fecha_dato":"julio 2025","nota":"Frente a 19 en 2010; 9 nuevos en 2024, incluidos los primeros de Colombia, Ecuador, Viet Nam y Zimbabwe"},
+    {"indicador":"Planes de acción nacionales con referencias al clima","valor":53,"unidad":"planes","fuente_id":"doc-002","fecha_dato":"junio 2025","nota":"Aumento desde 43 en 2023"},
+    {"indicador":"Mujeres en diplomacia del desarme (Primera Comisión)","valor":38,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"Aumento desde el 15 % en 2000"},
+    {"indicador":"Estados que integran consideraciones de género en control nacional de armamentos","valor":74,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"De los Estados que presentaron informes en el marco del Programa de Acción sobre armas pequeñas y ligeras"},
+    {"indicador":"Personal de UNRWA muerto en Gaza desde octubre 2023","valor":310,"unidad":"personas","fuente_id":"doc-002","fecha_dato":"2024-2025","nota":"Al menos 125 mujeres"},
+    {"indicador":"Mujeres y niñas desplazadas por la fuerza a finales de 2024","valor":123.2,"unidad":"millones de personas","fuente_id":"doc-002","fecha_dato":"finales 2024","nota":"Decenio de aumentos interanuales en número de refugiados"},
+    {"indicador":"Mujeres y niñas apátridas y desplazadas en riesgo de violencia de género","valor":60,"unidad":"millones","fuente_id":"doc-002","fecha_dato":"2024","nota":"En situación de elevado riesgo"},
+    {"indicador":"Niños afectados por crisis no escolarizados","valor":85,"unidad":"millones","fuente_id":"doc-002","fecha_dato":"2024","nota":"Más de 85 millones"},
+    {"indicador":"Muertes maternas en países con plan de respuesta humanitaria de la ONU","valor":58,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2023","nota":"50 % de muertes de recién nacidos y 51 % de muertes prenatales en 29 países"},
+    {"indicador":"Mujeres embarazadas desplazadas en Sudán","valor":272000,"unidad":"personas","fuente_id":"doc-002","fecha_dato":"2024","nota":"Casi 272.000 embarazadas desplazadas"},
+    {"indicador":"Mujeres con embarazos de alto riesgo en Myanmar tras terremoto","valor":223000,"unidad":"personas","fuente_id":"doc-002","fecha_dato":"2025","nota":"Debido a falta de servicios de atención materna"},
+    {"indicador":"Mujeres que dan a luz sin apoyo médico en Afganistán","valor":33,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"Un tercio; una mujer muere cada dos horas por complicaciones evitables"},
+    {"indicador":"Aumento estimado de mortalidad materna en Afganistán para 2026","valor":50,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"proyección","nota":"Estimación anterior a la prohibición de formación médica para mujeres"},
+    {"indicador":"Supervivientes de violencia sexual en Kosovo con estrés postraumático 25 años después","valor":86,"unidad":"porcentaje","fuente_id":"doc-001","fecha_dato":"2024","nota":"A pesar de haber recibido atención psicosocial"},
+    {"indicador":"Aumento de violencia doméstica en Ucrania desde 2022","valor":36,"unidad":"porcentaje","fuente_id":"doc-002","fecha_dato":"2024","nota":"42 % de mujeres en riesgo de depresión; 53 % de desplazadas internas ya la padecen"}
+  ],
+  "resoluciones": [
+    {"numero":"1325 (2000)","anio":2000,"tema":"Mujeres y paz y seguridad","obligaciones":"Participación de las mujeres en procesos de paz, protección de derechos, incorporación de perspectiva de género","estado_implementacion":"Implementación limitada; 113 planes de acción nacionales a julio de 2025, pero brechas de financiación y participación (18 % de negociadoras en 2024)"},
+    {"numero":"1820 (2008)","anio":2008,"tema":"Violencia sexual relacionada con conflictos","obligaciones":"Condena de la violencia sexual como táctica de guerra; solicitud de informe anual del Secretario General","estado_implementacion":"Informes anuales presentados; casos documentados en aumento"},
+    {"numero":"1888 (2009)","anio":2009,"tema":"Violencia sexual relacionada con conflictos","obligaciones":"Mandato del Equipo de Expertos sobre Estado de Derecho y Violencia Sexual; nombramiento de Asesores de Protección de las Mujeres; sistema de vigilancia, análisis y notificación","estado_implementacion":"Asesores desplegados en solo 9 de más de 20 entornos en 2025; dificultades de financiación"},
+    {"numero":"1960 (2010)","anio":2010,"tema":"Violencia sexual relacionada con conflictos","obligaciones":"Compromisos con plazos específicos para partes en conflicto; criterios de inclusión en listas de sanciones","estado_implementacion":"Más del 65 % de partes en el anexo son agresores reincidentes sin medidas correctoras"},
+    {"numero":"2106 (2013)","anio":2013,"tema":"Violencia sexual relacionada con conflictos","obligaciones":"Fortalecimiento de la rendición de cuentas y lucha contra la impunidad","estado_implementacion":"Impunidad persiste en la mayoría de situaciones; avances limitados en justicia transicional"},
+    {"numero":"2122 (2013)","anio":2013,"tema":"Mujeres y paz y seguridad","obligaciones":"Solicitud de información actualizada sobre progresos, retos y deficiencias en toda la agenda","estado_implementacion":"Informes anuales presentados; brechas persistentes en datos de género"},
+    {"numero":"2242 (2015)","anio":2015,"tema":"Mujeres y paz y seguridad","obligaciones":"Prohibición de participar en operaciones de paz a fuerzas armadas nacionales que figuren repetidamente en el anexo","estado_implementacion":"Aplicada; varios actores estatales en el anexo"},
+    {"numero":"2331 (2016)","anio":2016,"tema":"Violencia sexual relacionada con conflictos","obligaciones":"Enfoque en trata de personas y violencia sexual en conflictos; rendición de cuentas","estado_implementacion":"Trata con fines de explotación sexual documentada en múltiples contextos (Libia, Haití, Colombia)"},
+    {"numero":"2467 (2019)","anio":2019,"tema":"Violencia sexual relacionada con conflictos","obligaciones":"Informes anuales del Secretario General; enfoque centrado en las víctimas; despliegue de asesores de protección de las mujeres; acceso a servicios de salud sexual y reproductiva","estado_implementacion":"Parcial; recortes de financiación han cerrado espacios seguros y reducido servicios; acceso humanitario restringido"},
+    {"numero":"2493 (2019)","anio":2019,"tema":"Mujeres y paz y seguridad","obligaciones":"Reforzar medidas para implementar plenamente la agenda","estado_implementacion":"Estancamiento y retroceso en muchos objetivos según S/2025/556"},
+    {"numero":"2594 (2021)","anio":2021,"tema":"Operaciones de paz y transiciones","obligaciones":"Prevenir vacíos de protección durante reducción y retirada de misiones de paz","estado_implementacion":"Retirada de MINUSMA y otras misiones ha dejado vacíos de seguridad y mermado capacidad de vigilancia"},
+    {"numero":"2669 (2022)","anio":2022,"tema":"Myanmar","obligaciones":"Cese de violencia sexual; acceso humanitario; liberación de detenidos arbitrariamente","estado_implementacion":"Incumplida; violencia sexual sistemática persiste en 2025"},
+    {"numero":"2681 (2023)","anio":2023,"tema":"Afganistán","obligaciones":"Reversión de leyes y políticas que restringen derechos de mujeres y niñas","estado_implementacion":"No cumplida; autoridades talibanas mantienen restricciones"},
+    {"numero":"2730 (2024)","anio":2024,"tema":"Protección de personal humanitario","obligaciones":"Respeto y protección del personal humanitario y de la ONU","estado_implementacion":"Ataques contra trabajadores humanitarios alcanzaron niveles sin precedentes en 2024"},
+    {"numero":"2734 (2024)","anio":2024,"tema":"Sanciones Dáesh/Al-Qaida","obligaciones":"Violencia sexual y de género como acto punible por el Comité 1267; criterio de inclusión en listas","estado_implementacion":"Aplicada; violencia sexual como motivo de inclusión en lista de sanciones de Haití (Gran Grif) en 2025"},
+    {"numero":"2773 (2025)","anio":2025,"tema":"República Democrática del Congo","obligaciones":"Condena de ofensiva del M23 con apoyo de Fuerzas de Defensa de Rwanda","estado_implementacion":"Violencia sexual documentada en aumento (1.534 casos verificados por MONUSCO en 2025)"}
+  ],
+  "tendencias_temporales": [
+    {"anio":2000,"indicador":"Porcentaje de decisiones del Consejo de Seguridad con formulaciones de género","valor":10,"fuente_id":"doc-002","nota":"Aproximado; en 2024 superó el 60 %"},
+    {"anio":2024,"indicador":"Porcentaje de decisiones del Consejo de Seguridad con formulaciones de género","valor":60,"fuente_id":"doc-002","nota":"Más del 60 %; ligero aumento respecto a 2023; casi 50 puntos porcentuales más que en 2000"},
+    {"anio":2010,"indicador":"Planes de acción nacionales sobre mujeres, paz y seguridad","valor":19,"fuente_id":"doc-002","nota":"Frente a 113 en julio de 2025"},
+    {"anio":2025,"indicador":"Planes de acción nacionales sobre mujeres, paz y seguridad","valor":113,"fuente_id":"doc-002","nota":"Incluye planes de territorios; 9 nuevos en 2024 (Colombia, Ecuador, Viet Nam, Zimbabwe primeros)"},
+    {"anio":2020,"indicador":"Mujeres negociadoras en procesos de paz dirigidos o apoyados por la ONU","valor":23,"fuente_id":"doc-002","nota":"Porcentaje"},
+    {"anio":2023,"indicador":"Mujeres negociadoras en procesos de paz dirigidos o apoyados por la ONU","valor":19,"fuente_id":"doc-002","nota":"Porcentaje; descenso respecto a 2020"},
+    {"anio":2024,"indicador":"Mujeres negociadoras en procesos de paz dirigidos o apoyados por la ONU","valor":18,"fuente_id":"doc-002","nota":"Porcentaje; descenso continuado"},
+    {"anio":1990,"indicador":"Porcentaje de acuerdos de paz con disposiciones de género","valor":7,"fuente_id":"doc-002","nota":"Dato de la figura II; pico en 2015 (52 %) y descenso posterior"},
+    {"anio":2015,"indicador":"Porcentaje de acuerdos de paz con disposiciones de género","valor":52,"fuente_id":"doc-002","nota":"Pico histórico según figura II"},
+    {"anio":2024,"indicador":"Porcentaje de acuerdos de paz con disposiciones de género","valor":31,"fuente_id":"doc-002","nota":"11 de 36 acuerdos; solo 2 mencionaron violencia de género"},
+    {"anio":2016,"indicador":"Mujeres en fuerzas armadas (promedio)","valor":11,"fuente_id":"doc-002","nota":"Porcentaje; aumentó al 14 % en 2022"},
+    {"anio":2022,"indicador":"Mujeres en fuerzas armadas (promedio)","valor":14,"fuente_id":"doc-002","nota":"Porcentaje; 97 % de oficiales generales son hombres"},
+    {"anio":2017,"indicador":"Participación de mujeres en mantenimiento de la paz","valor":null,"fuente_id":"doc-002","nota":"Se ha duplicado con creces desde 2017; en 2024 ligeramente superior al 10 % del personal uniformado"},
+    {"anio":2024,"indicador":"Participación de mujeres en mantenimiento de la paz (personal uniformado)","valor":10,"fuente_id":"doc-002","nota":"Porcentaje; frente a poco más del 3 % hace 15 años"},
+    {"anio":2000,"indicador":"Mujeres en diplomacia del desarme (Primera Comisión)","valor":15,"fuente_id":"doc-002","nota":"Porcentaje"},
+    {"anio":2024,"indicador":"Mujeres en diplomacia del desarme (Primera Comisión)","valor":38,"fuente_id":"doc-002","nota":"Porcentaje; aumento constante"},
+    {"anio":2024,"indicador":"Asignaciones del Fondo para la Consolidación de la Paz a igualdad de género","valor":49.9,"fuente_id":"doc-002","nota":"Millones de dólares; 43 % del total aprobado (116 millones)"},
+    {"anio":2023,"indicador":"Asignaciones del Fondo para la Consolidación de la Paz a igualdad de género","valor":95.8,"fuente_id":"doc-002","nota":"Millones de dólares; 47,3 % del total aprobado (202 millones)"},
+    {"anio":2024,"indicador":"Fondos mancomunados para países concretos asignados a proyectos con marcador de género 3 o 4","valor":94,"fuente_id":"doc-002","nota":"Porcentaje; 935 millones de dólares"},
+    {"anio":2024,"indicador":"Fondo Central para la Acción en Casos de Emergencia asignado a proyectos con marcador de género 3 o 4","valor":74,"fuente_id":"doc-002","nota":"Porcentaje; 545 millones de dólares"},
+    {"anio":2024,"indicador":"Asignaciones de fondos mancomunados a organizaciones dirigidas por mujeres","valor":11,"fuente_id":"doc-002","nota":"Porcentaje; 101,6 millones de dólares; aumento desde el 7 %"},
+    {"anio":2024,"indicador":"Casos de violencia sexual contra niñas (aumento)","valor":35,"fuente_id":"doc-002","nota":"Porcentaje de aumento respecto al año anterior; en algunos lugares casi la mitad de las víctimas son niñas"},
+    {"anio":2024,"indicador":"Aumento de casos documentados de violencia sexual relacionada con conflictos en dos años","valor":87,"fuente_id":"doc-002","nota":"Porcentaje"},
+    {"anio":2025,"indicador":"Partes en conflictos incluidas en el anexo del Secretario General","valor":77,"fuente_id":"doc-003","nota":"Frente a 63 en el informe anterior (S/2025/389); más del 65 % son agresores reincidentes"},
+    {"anio":2024,"indicador":"Partes en conflictos incluidas en el anexo del Secretario General","valor":63,"fuente_id":"doc-001","nota":"Dato del informe S/2025/389"},
+    {"anio":2024,"indicador":"Mujeres jefas de misión de la ONU","valor":42,"fuente_id":"doc-002","nota":"Porcentaje más alto registrado; jefas adjuntas de misión: 41 %"},
+    {"anio":2021,"indicador":"Paridad de género en jefaturas y jefaturas adjuntas de misión de la ONU","valor":null,"fuente_id":"doc-002","nota":"Alcanzada por primera vez en 2021; ha disminuido desde entonces"},
+    {"anio":2024,"indicador":"Mujeres en grupos de expertos de comités de sanciones","valor":null,"fuente_id":"doc-002","nota":"Se ha más que duplicado desde 2016 y se acerca a la paridad"},
+    {"anio":2024,"indicador":"Personas invitadas a informar al Consejo de Seguridad (artículo 39)","valor":464,"fuente_id":"doc-002","nota":"Paridad de género entre las personas invitadas"},
+    {"anio":2025,"indicador":"Mujeres de la sociedad civil invitadas a informar al Consejo de Seguridad (primer semestre)","valor":null,"fuente_id":"doc-002","nota":"Descenso notable en el primer semestre de 2025"},
+    {"anio":2024,"indicador":"Exenciones de prohibición de viajar aprobadas para dirigentes talibanes sancionados","valor":25,"fuente_id":"doc-002","nota":"Frente a 16 en 2023 y 5 en 2022"}
+  ],
+  "brechas": [
+    {"tipo":"Financiamiento insuficiente","descripcion":"Recortes drásticos a la financiación de entidades de la ONU y organizaciones de mujeres; cierre de espacios seguros y reducción de servicios vitales","fuente_id":"doc-002","cita":"En el Yemen, la suspensión de la financiación ya ha obligado a cerrar 22 espacios seguros a principios de 2025, lo que ha privado de servicios y apoyo a más de 11.000 mujeres y niñas en zonas de alto riesgo.","datos":"Ayuda bilateral a organizaciones de mujeres en contextos de fragilidad: 186 millones de dólares/año (0,4 %), por debajo del 1 % recomendado"},
+    {"tipo":"Falta de rendición de cuentas","descripcion":"Impunidad generalizada; más del 65 % de partes en el anexo son agresores reincidentes sin medidas correctoras","fuente_id":"doc-003","cita":"Más del 65 % de las partes incluidas en la lista del anexo del presente informe son autores reincidentes, y figuran en el anexo durante cinco o más años sin tomar medidas correctoras o reparadoras.","datos":"Solo 8 regímenes de sanciones incluyen violencia sexual como motivo"},
+    {"tipo":"Acceso humanitario restringido","descripcion":"Restricciones al acceso humanitario en Libia, Myanmar, Sudán, Yemen, Gaza y otros lugares; ataques contra trabajadores humanitarios","fuente_id":"doc-001","cita":"La inseguridad reinante restringió de modo considerable el acceso humanitario en Libia, Myanmar, el Sudán y el Yemen, así como en Gaza y otros lugares, lo que menguó la capacidad de prestar servicios vitales.","datos":"Personal de UNRWA muerto en Gaza: más de 310 desde octubre de 2023, incluidos al menos 125 mujeres"},
+    {"tipo":"Déficit de datos de género","descripcion":"Escasez de datos y análisis de género, especialmente sobre violencia sexual relacionada con conflictos; invisibiliza experiencias de mujeres y niñas","fuente_id":"doc-002","cita":"La escasez de datos y análisis de género, tanto cuantitativos como cualitativos, invisibiliza las experiencias vividas y las necesidades de las mujeres y las niñas, especialmente en situaciones de conflicto y crisis.","datos":"Solo 15 % del apoyo bilateral a datos y estadísticas se destinó a datos de género; 122 millones de dólares"},
+    {"tipo":"Baja participación de mujeres en procesos de paz","descripcion":"Representación de mujeres como negociadoras, mediadoras y signatarias muy por debajo de la meta mínima de un tercio","fuente_id":"doc-002","cita":"En 2024, las mujeres representaban, en promedio, solo el 18 % de los negociadores o delegados entre los negociadores en los procesos de paz y constituyentes dirigidos, codirigidos o apoyados por las Naciones Unidas.","datos":"Descenso desde el 19 % en 2023 y el 23 % en 2020"},
+    {"tipo":"Debilitamiento del lenguaje de género y retroceso en derechos","descripcion":"Reacción negativa frente a la igualdad de género; controversias sobre términos de género; retroceso en protecciones jurídicas","fuente_id":"doc-002","cita":"A principios de 2025, los Estados Miembros informaron de reacciones negativas frente a los derechos de las mujeres en casi una cuarta parte de los países que pretendían poner en práctica la Plataforma de Acción de Beijing.","datos":"Aumento de discriminación y reducción de financiación para atención no discriminatoria de salud sexual y reproductiva"},
+    {"tipo":"Retirada de operaciones de paz y vacíos de protección","descripcion":"Cierre de MINUSMA y otras misiones ha dejado vacíos de seguridad y mermado capacidad de vigilancia y respuesta","fuente_id":"doc-001","cita":"En general, la retirada o la reducción de las operaciones de paz ha dejado vacíos de seguridad y mermado la capacidad de las Naciones Unidas para ayudar a las partes interesadas a abordar los casos de violencia sexual.","datos":"Asesores de protección de las mujeres desplegados solo en 9 de más de 20 entornos en 2025"},
+    {"tipo":"Servicios insuficientes para supervivientes","descripcion":"Falta de profesionales formados, escasez de kits posviolación, servicios concentrados en zonas urbanas y de acceso costoso","fuente_id":"doc-001","cita":"Las personas supervivientes rara vez lograban consultar a los proveedores de servicios especializados durante las 72 horas vitales en las que el manejo clínico de los casos de violación, incluidos los tratamientos de prevención del VIH, resulta más eficaz.","datos":"En RDC, 90.199 casos registrados por proveedores entre enero y septiembre de 2025"},
+    {"tipo":"Violencia sexual en centros de detención","descripcion":"Acceso humanitario bloqueado o restringido a centros de detención; violencia sexual como tortura","fuente_id":"doc-003","cita":"En varios lugares, el acceso humanitario a los centros de detención siguió estando limitado o bloqueado. En Libia, las restricciones de acceso suscitaron preocupaciones en materia de protección.","datos":"Al menos seis centros de detención no oficiales en Libia inaccesibles para la ONU, con más de 3.000 detenidos"},
+    {"tipo":"Estigmatización y barreras de acceso a la justicia","descripcion":"Miedo a represalias, falta de asistencia letrada, distancias largas, costos prohibitivos y justicia consuetudinaria que obliga a casarse con agresores","fuente_id":"doc-001","cita":"A menudo, las víctimas se abstuvieron de presentar una denuncia por miedo a las represalias y la estigmatización. En algunos casos, la falta de procesos formales de rendición de cuentas hacía que se recurriera a la justicia consuetudinaria.","datos":"En Colombia, menos del 10 % de los casos tuvieron pruebas forenses"}
+  ]
+}
+</script>
+
+<script>
+/* ============================================================
+   1. CARGA DE DATOS
+   ============================================================ */
+const DATOS = JSON.parse(document.getElementById('datos-json').textContent);
+const safe = (v, def = 'Sin datos') => (v === undefined || v === null || v === '' ? def : v);
+
+/* ============================================================
+   2. NAVEGACIÓN
+   ============================================================ */
+const tabs = document.querySelectorAll('nav.tabs button');
+const vistas = document.querySelectorAll('.vista');
+function mostrarVista(id) {
+  vistas.forEach(v => v.classList.toggle('activa', v.id === 'vista-' + id));
+  tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.vista === id ? 'true' : 'false'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+tabs.forEach(t => t.addEventListener('click', () => mostrarVista(t.dataset.vista)));
+
+/* ============================================================
+   3. PANEL PRINCIPAL (Contadores y Brechas)
+   ============================================================ */
+function calcularTotalMenciones() {
+  let total = 0;
+  (DATOS.paises || []).forEach(p => total += (p.menciones || []).length);
+  total += (DATOS.tipos_violencia || []).reduce((acc, t) => acc + (t.casos_reportados || []).length, 0);
+  total += (DATOS.resoluciones || []).length;
+  total += (DATOS.datos_cuantitativos || []).length;
+  total += (DATOS.brechas || []).length;
+  return total;
+}
+
+function animarContador(el, destino, duracion = 1400) {
+  const inicio = performance.now();
+  function paso(ahora) {
+    const t = Math.min((ahora - inicio) / duracion, 1);
+    el.textContent = Math.floor(destino * (1 - Math.pow(1 - t, 3))).toLocaleString('es-ES');
+    if (t < 1) requestAnimationFrame(paso);
+    else el.textContent = destino.toLocaleString('es-ES');
+  }
+  requestAnimationFrame(paso);
+}
+
+document.getElementById('contadorTotal').textContent = '0';
+animarContador(document.getElementById('contadorTotal'), calcularTotalMenciones());
+document.getElementById('kpiPaises').textContent = (DATOS.paises || []).length;
+document.getElementById('kpiResoluciones').textContent = (DATOS.resoluciones || []).length;
+document.getElementById('kpiDatos').textContent = (DATOS.datos_cuantitativos || []).length;
+document.getElementById('kpiBrechas').textContent = (DATOS.brechas || []).length;
+
+const brechasCont = document.getElementById('listaBrechas');
+(DATOS.brechas || []).slice(0,4).forEach(b => {
+  brechasCont.innerHTML += `<div class="brecha"><div class="icono">❗</div><div><h4>${b.tipo}</h4><p>${b.descripcion}</p></div></div>`;
+});
+
+/* ============================================================
+   4. GRÁFICO DE TENDENCIAS REDISEÑADO
+   ============================================================ */
+let chartInstance = null;
+
+function agruparTendencias() {
+  const mapa = {};
+  (DATOS.tendencias_temporales || []).forEach(t => {
+    if (!t.indicador || t.valor === null) return;
+    if (!mapa[t.indicador]) mapa[t.indicador] = [];
+    mapa[t.indicador].push({ anio: t.anio, valor: t.valor });
+  });
+  return mapa;
+}
+
+const mapaTendencias = agruparTendencias();
+const selectTend = document.getElementById('selectorTendencia');
+
+Object.keys(mapaTendencias).forEach(k => {
+  const opt = document.createElement('option');
+  opt.value = k; 
+  opt.textContent = k;
+  selectTend.appendChild(opt);
+});
+
+function obtenerAclaracion(indicador) {
+  const ind = indicador.toLowerCase();
+  if (ind.includes('porcentaje') || ind.includes('%')) return 'Representa un porcentaje (%).';
+  if (ind.includes('millones de dólares')) return 'Representa millones de dólares estadounidenses.';
+  if (ind.includes('billones')) return 'Representa billones de dólares estadounidenses.';
+  if (ind.includes('partes')) return 'Representa el número de partes en conflicto.';
+  if (ind.includes('planes')) return 'Representa el número de planes de acción aprobados.';
+  if (ind.includes('personas')) return 'Representa el número de personas.';
+  return 'Representa el valor de la métrica seleccionada.';
+}
+
+function actualizarGrafico(indicador) {
+  const datos = (mapaTendencias[indicador] || []).sort((a, b) => a.anio - b.anio);
+  
+  const canvas = document.getElementById('graficoTendencias');
+  const bigBox = document.getElementById('bigNumberBox');
+  const chipCont = document.getElementById('chipContenedor');
+  const fallback = document.getElementById('fallbackGrafico');
+  const aclaracion = document.getElementById('aclaracionGrafico');
+  
+  canvas.classList.add('oculto');
+  bigBox.classList.add('oculto');
+  fallback.classList.add('oculto');
+  chipCont.innerHTML = '';
+  aclaracion.textContent = obtenerAclaracion(indicador);
+
+  if (datos.length === 0) {
+    fallback.innerHTML = '<p class="sin-datos">No hay datos para este indicador.</p>';
+    fallback.classList.remove('oculto');
+    return;
+  }
+
+  // CASO 1: UN SOLO DATO (Idea B)
+  if (datos.length === 1) {
+    const d = datos[0];
+    bigBox.classList.remove('oculto');
+    bigBox.innerHTML = `
+      <div class="big-number-val">${d.valor.toLocaleString('es-ES')}</div>
+      <div class="big-number-lbl">Registrado en el año <strong>${d.anio}</strong> para:<br><em>${indicador}</em></div>
+    `;
+    return;
+  }
+
+  // CASO 2: DOS O MÁS DATOS (Idea A)
+  const primero = datos[0];
+  const ultimo = datos[datos.length - 1];
+  if (primero.valor !== 0 && ultimo.anio !== primero.anio) {
+    let variacion = ((ultimo.valor - primero.valor) / Math.abs(primero.valor)) * 100;
+    let signo = variacion > 0 ? '+' : '';
+    let colorClass = variacion > 0 ? 'var(--turquesa)' : 'var(--rojo)';
+    chipCont.innerHTML = `<div class="chip-variacion" style="color:${colorClass}; border-color:${colorClass}; background:transparent;">${signo}${variacion.toFixed(1)}% desde ${primero.anio}</div>`;
+  }
+
+  canvas.classList.remove('oculto');
+
+  if (typeof Chart === 'undefined') {
+    canvas.classList.add('oculto');
+    fallback.classList.remove('oculto');
+    fallback.innerHTML = '';
+    const max = Math.max(...datos.map(d => d.valor));
+    datos.forEach(d => {
+      fallback.innerHTML += `<div class="barra-fila"><span>${d.anio}</span><div class="barra"><span style="width:${(d.valor/max)*100}%"></span></div><strong>${d.valor}</strong></div>`;
+    });
+    return;
+  }
+
+  if (chartInstance) chartInstance.destroy();
+  
+  chartInstance = new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels: datos.map(d => d.anio),
+      datasets: [{
+        label: indicador,
+        data: datos.map(d => d.valor),
+        backgroundColor: 'rgba(124, 58, 237, 0.7)',
+        borderColor: '#14b8a6',
+        borderWidth: 2,
+        borderRadius: 8,
+        hoverBackgroundColor: '#14b8a6'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { backgroundColor: '#1f2140', titleColor: '#fff', bodyColor: '#b9bbd6', padding: 12, cornerRadius: 8 }
+      },
+      scales: {
+        x: { ticks: { color: '#b9bbd6', font: { weight: 'bold' } }, grid: { display: false } },
+        y: { ticks: { color: '#b9bbd6' }, grid: { color: 'rgba(255,255,255,.05)' }, beginAtZero: true }
+      }
+    }
+  });
+}
+
+if (Object.keys(mapaTendencias).length > 0) {
+  actualizarGrafico(Object.keys(mapaTendencias)[0]);
+  selectTend.addEventListener('change', () => actualizarGrafico(selectTend.value));
+}
+
+/* ============================================================
+   5. CASOS MÁS GRAVES (Con aclaración)
+   ============================================================ */
+const casosCont = document.getElementById('casosGraves');
+const topCasos = (DATOS.datos_cuantitativos || []).filter(d => typeof d.valor === 'number').sort((a,b) => b.valor - a.valor).slice(0, 3);
+topCasos.forEach(d => {
+  let pais = d.pais || 'Situación documentada';
+  // Intento de inferir contexto del indicador
+  let contexto = d.nota || 'Dato documentado en los informes.';
+  
+  casosCont.innerHTML += `
+    <div class="card caso-card">
+      <div class="pais">${pais}</div>
+      <div class="dato">${d.valor.toLocaleString('es-ES')} <span class="unidad">${d.unidad}</span></div>
+      <div class="contexto">${d.indicador}</div>
+      <div style="font-size:.8rem;color:var(--texto-suave);margin-bottom:8px">${contexto}</div>
+    </div>
+  `;
+});
+
+
+/* ============================================================
+   6. JUEGO 1: DETECTOR DE BRECHAS
+   ============================================================ */
+const brechasJuego1 = (DATOS.brechas || []).slice(0, 3);
+let alertasEncontradas = 0;
+
+function iniciarJ1() {
+  alertasEncontradas = 0;
+  const cont = document.getElementById('alertasJ1');
+  cont.innerHTML = '';
+  document.getElementById('resultadoJ1').classList.add('oculto');
+  document.getElementById('citaJ1').classList.add('oculto');
+  document.getElementById('posterJ1').classList.remove('roto');
+
+  if (brechasJuego1.length === 0) {
+    cont.innerHTML = '<p class="sin-datos">No hay datos de brechas en el JSON.</p>';
+    return;
+  }
+
+  brechasJuego1.forEach((b, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'alerta-btn';
+    btn.textContent = `⚠️ Alerta ${i+1}`;
+    btn.onclick = () => {
+      btn.disabled = true;
+      btn.style.opacity = '0';
+      alertasEncontradas++;
+      const citaBox = document.getElementById('citaJ1');
+      citaBox.classList.remove('oculto');
+      citaBox.innerHTML = `<strong>${b.tipo}</strong><p>${b.cita}</p>`;
+      if (alertasEncontradas === brechasJuego1.length) {
+        document.getElementById('posterJ1').classList.add('roto');
+        document.getElementById('resultadoJ1').classList.remove('oculto');
+        document.getElementById('resultadoJ1').className = 'feedback ok';
+        document.getElementById('resultadoJ1').innerHTML = '💥 ¡Has descubierto todas las brechas! El póster oficial no refleja la realidad.';
+      }
+    };
+    cont.appendChild(btn);
+  });
+}
+document.getElementById('reiniciarJ1').onclick = iniciarJ1;
+iniciarJ1();
+
+
+/* ============================================================
+   7. JUEGO 2: EL LABERINTO DE LA JUSTICIA
+   ============================================================ */
+const caminosJ2 = [
+  { id: 'A', texto: 'Ir al tribunal más cercano', resultado: 'La distancia es larga y el transporte cuesta dinero. Además, el miedo a represalias es alto.', dato: (DATOS.brechas||[]).find(b => b.tipo.includes('Estigmatización'))?.cita || 'Barreras de acceso.' },
+  { id: 'B', texto: 'Acudir a la justicia consuetudinaria', resultado: 'El jefe local sugiere que te cases con tu agresor para "restaurar el honor".', dato: (DATOS.brechas||[]).find(b => b.tipo.includes('Estigmatización'))?.cita || 'Justicia consuetudinaria.' },
+  { id: 'C', texto: 'Buscar un centro de salud u ONG', resultado: 'El centro más cercano ha cerrado por falta de fondos internacionales.', dato: (DATOS.brechas||[]).find(b => b.tipo.includes('Financiamiento'))?.cita || 'Falta de fondos.' }
+];
+
+function iniciarJ2() {
+  const cont = document.getElementById('contenedorJ2');
+  cont.innerHTML = '';
+  document.getElementById('resultadoJ2').classList.add('oculto');
+  if (caminosJ2.length === 0) return;
+
+  caminosJ2.forEach(c => {
+    const div = document.createElement('div');
+    div.className = 'camino-card';
+    div.innerHTML = `<strong>Camino ${c.id}:</strong> ${c.texto}`;
+    div.onclick = () => {
+      document.getElementById('resultadoJ2').classList.remove('oculto');
+      document.getElementById('resultadoJ2').className = 'feedback no mt';
+      document.getElementById('resultadoJ2').innerHTML = `<strong>Resultado:</strong> ${c.resultado}<br><br><em>Dato ONU: "${c.dato}"</em>`;
+    };
+    cont.appendChild(div);
+  });
+}
+document.getElementById('reiniciarJ2').onclick = iniciarJ2;
+iniciarJ2();
+
+
+/* ============================================================
+   8. JUEGO 3: ¿QUIÉN DOCUMENTA QUÉ?
+   ============================================================ */
+const reportesJ3 = [
+  { id: 1, texto: 'Se verificaron 523 niñas y 142 mujeres afectadas por violencia sexual en 2024.', mision: 'BINUH' },
+  { id: 2, texto: 'En 2024 verificaron violaciones y matrimonios forzados contra 5 mujeres, 4 niñas y 2 niños.', mision: 'UNAMA' },
+  { id: 3, texto: 'Documentaron 823 casos de violaciones individuales y colectivas, esclavitud sexual y matrimonios forzados en 2024.', mision: 'MONUSCO' }
+];
+let aciertosJ3 = 0;
+
+function iniciarJ3() {
+  aciertosJ3 = 0;
+  document.getElementById('resultadoJ3').classList.add('oculto');
+  const cont = document.getElementById('reportesJ3');
+  cont.innerHTML = '';
+  
+  const buzones = document.querySelectorAll('.buzon');
+  buzones.forEach(b => b.classList.remove('lleno', 'activo'));
+
+  const mezclados = [...reportesJ3].sort(() => Math.random() - 0.5);
+  
+  mezclados.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'reporte-card';
+    card.textContent = r.texto;
+    card.draggable = true;
+    card.dataset.mision = r.mision;
+    card.id = 'rep-' + r.id;
+    
+    card.ondragstart = (e) => {
+      e.dataTransfer.setData('text/plain', card.id);
+      card.classList.add('arrastrando');
+    };
+    card.ondragend = () => card.classList.remove('arrastrando');
+    cont.appendChild(card);
+  });
+
+  buzones.forEach(b => {
+    b.ondragover = (e) => { e.preventDefault(); b.classList.add('activo'); };
+    b.ondragleave = () => b.classList.remove('activo');
+    b.ondrop = (e) => {
+      e.preventDefault();
+      b.classList.remove('activo');
+      const id = e.dataTransfer.getData('text/plain');
+      const card = document.getElementById(id);
+      if (!card) return;
+      
+      if (card.dataset.mision === b.dataset.mision) {
+        card.remove();
+        aciertosJ3++;
+        if (aciertosJ3 === reportesJ3.length) {
+          document.getElementById('resultadoJ3').classList.remove('oculto');
+          document.getElementById('resultadoJ3').className = 'feedback ok mt';
+          document.getElementById('resultadoJ3').innerHTML = '🎉 ¡Excelente! Has asignado correctamente todos los reportes a sus misiones.';
+        }
+      } else {
+        b.style.borderColor = 'var(--rojo)';
+        setTimeout(() => b.style.borderColor = 'transparent', 500);
+      }
+    };
+  });
+}
+document.getElementById('reiniciarJ3').onclick = iniciarJ3;
+iniciarJ3();
+
+
+/* ============================================================
+   9. JUEGO 4: VERDADERO O FALSO
+   ============================================================ */
+const preguntasJ4 = [
+  { texto: 'El 86% de las supervivientes de violencia sexual en Kosovo sigue con estrés postraumático 25 años después.', valor: true, fuente: 'S/2025/389' },
+  { texto: 'En 2024, las mujeres representaron el 50% de los negociadores en los procesos de paz de la ONU.', valor: false, fuente: 'S/2025/556' },
+  { texto: 'El gasto militar mundial superó los 2.7 billones de dólares en 2024.', valor: true, fuente: 'S/2025/556' },
+  { texto: 'Solo el 3% de los países ha tomado medidas para reducir el gasto militar.', valor: true, fuente: 'S/2025/556' },
+  { texto: 'Los casos de violencia sexual en Sudán del Sur disminuyeron un 50% en 2024.', valor: false, fuente: 'S/2025/389' }
+];
+let idxJ4 = 0;
+let puntosJ4 = 0;
+
+function iniciarJ4() {
+  idxJ4 = 0; puntosJ4 = 0;
+  document.getElementById('feedbackJ4').classList.add('oculto');
+  document.getElementById('btnVerdaderoJ4').disabled = false;
+  document.getElementById('btnFalsoJ4').disabled = false;
+  document.getElementById('progresoJ4').querySelector('span').style.width = '0%';
+  pintarPreguntaJ4();
+}
+
+function pintarPreguntaJ4() {
+  if (idxJ4 >= preguntasJ4.length) {
+    document.getElementById('afirmacionJ4').textContent = '¡Has terminado!';
+    document.getElementById('progresoJ4').querySelector('span').style.width = '100%';
+    document.getElementById('feedbackJ4').classList.remove('oculto');
+    document.getElementById('feedbackJ4').className = 'feedback ok';
+    document.getElementById('feedbackJ4').innerHTML = `Acertaste ${puntosJ4} de ${preguntasJ4.length}.<br><br><button class="btn mt" data-ir="panel" onclick="mostrarVista('panel')">Volver al panel</button>`;
+    document.getElementById('btnVerdaderoJ4').classList.add('oculto');
+    document.getElementById('btnFalsoJ4').classList.add('oculto');
+    return;
+  }
+
+  document.getElementById('btnVerdaderoJ4').classList.remove('oculto');
+  document.getElementById('btnFalsoJ4').classList.remove('oculto');
+  document.getElementById('feedbackJ4').classList.add('oculto');
+  document.getElementById('afirmacionJ4').textContent = preguntasJ4[idxJ4].texto;
+  document.getElementById('progresoJ4').querySelector('span').style.width = `${(idxJ4 / preguntasJ4.length) * 100}%`;
+  document.getElementById('btnVerdaderoJ4').disabled = false;
+  document.getElementById('btnFalsoJ4').disabled = false;
+}
+
+function responderJ4(respuestaUsuario) {
+  const q = preguntasJ4[idxJ4];
+  const correcto = respuestaUsuario === q.valor;
+  if (correcto) puntosJ4++;
+
+  const fb = document.getElementById('feedbackJ4');
+  fb.classList.remove('oculto');
+  fb.className = 'feedback ' + (correcto ? 'ok' : 'no');
+  fb.innerHTML = `<strong>${correcto ? '¡Correcto!' : 'Incorrecto.'}</strong> La afirmación es <strong>${q.valor ? 'Verdadera' : 'Falsa'}</strong>.<br>Fuente: ${q.fuente}.`;
+  
+  document.getElementById('btnVerdaderoJ4').disabled = true;
+  document.getElementById('btnFalsoJ4').disabled = true;
+  
+  const next = document.createElement('button');
+  next.className = 'btn mt';
+  next.textContent = 'Siguiente →';
+  next.onclick = () => { idxJ4++; pintarPreguntaJ4(); };
+  fb.appendChild(next);
+}
+
+document.getElementById('reiniciarJ4').onclick = iniciarJ4;
+document.getElementById('btnVerdaderoJ4').onclick = () => responderJ4(true);
+document.getElementById('btnFalsoJ4').onclick = () => responderJ4(false);
+iniciarJ4();
+
+
+/* ============================================================
+   10. JUEGO 5: MAPA DE TIPOS DE VIOLENCIA
+   ============================================================ */
+let tiposDescubiertos = 0;
+
+function iniciarJ5() {
+  tiposDescubiertos = 0;
+  document.getElementById('detalleJ5').classList.add('oculto');
+  document.getElementById('resultadoJ5').classList.add('oculto');
+  const cont = document.getElementById('nubeJ5');
+  cont.innerHTML = '';
+
+  (DATOS.tipos_violencia || []).forEach(t => {
+    const btn = document.createElement('button');
+    btn.className = 'nube-item';
+    btn.textContent = t.categoria;
+    btn.onclick = () => {
+      if (btn.classList.contains('descubierto')) return;
+      btn.classList.add('descubierto');
+      tiposDescubiertos++;
+
+      const casos = t.casos_reportados || [];
+      let html = `<h3>${t.categoria}</h3><p><strong>Contexto:</strong> ${t.contexto}</p><ul>`;
+      casos.forEach(c => {
+        html += `<li><strong>${c.pais}:</strong> ${c.detalle} (${c.casos || 'casos no cuantificados'})</li>`;
+      });
+      html += '</ul>';
+
+      const det = document.getElementById('detalleJ5');
+      det.classList.remove('oculto');
+      det.innerHTML = html;
+
+      if (tiposDescubiertos === (DATOS.tipos_violencia || []).length) {
+        document.getElementById('resultadoJ5').classList.remove('oculto');
+        document.getElementById('resultadoJ5').className = 'feedback ok mt';
+        document.getElementById('resultadoJ5').innerHTML = '🎉 ¡Has descubierto todos los tipos de violencia! La violencia sexual no es solo violación; incluye matrimonio forzado, esclavitud, mutilación, etc.';
+      }
+    };
+    cont.appendChild(btn);
+  });
+}
+document.getElementById('reiniciarJ5').onclick = iniciarJ5;
+iniciarJ5();
+
+</script>
+</body>
+</html>

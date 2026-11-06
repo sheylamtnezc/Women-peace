@@ -1,0 +1,1672 @@
+{
+  "fuentes": [
+    {
+      "id": "doc-001",
+      "simbolo": "S/2025/389",
+      "tipo": "informe",
+      "fecha": "2025-07-15",
+      "titulo": "Violencia sexual relacionada con los conflictos",
+      "organo": "Secretario General",
+      "idioma_original": "inglés",
+      "periodo_cubierto": "enero-diciembre 2024"
+    },
+    {
+      "id": "doc-002",
+      "simbolo": "S/2025/556",
+      "tipo": "informe",
+      "fecha": "2025-09-05",
+      "titulo": "Las mujeres y la paz y la seguridad",
+      "organo": "Secretario General",
+      "idioma_original": "inglés",
+      "periodo_cubierto": "2024-2025"
+    },
+    {
+      "id": "doc-003",
+      "simbolo": "S/2026/321",
+      "tipo": "informe",
+      "fecha": "2026 (año del documento; fecha exacta no visible en el texto)",
+      "titulo": "La violencia sexual relacionada con los conflictos",
+      "organo": "Secretario General",
+      "idioma_original": "español (traducción)",
+      "periodo_cubierto": "enero-diciembre 2025"
+    }
+  ],
+  "paises": [
+    {
+      "nombre": "Afganistán",
+      "rol": "país afectado / perpetrador señalado (autoridades de facto talibanas)",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "En 2024, la UNAMA verificó distintos incidentes de violencia sexual, tales como violaciones y matrimonios forzados, que se habían cometido contra cinco mujeres, cuatro niñas y dos niños y en los que estaban implicados algunos funcionarios de facto y hombres no identificados.",
+          "tipo_violencia": "violación, matrimonio forzado"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025, la UNAMA verificó distintos incidentes de violencia sexual, como violaciones, violaciones colectivas, matrimonios forzados y desnudez forzada, que se habían cometido contra 15 mujeres y 6 niñas y fueron atribuidos a funcionarios de facto, incluidas las fuerzas de seguridad de facto.",
+          "tipo_violencia": "violación, violación colectiva, matrimonio forzado, desnudez forzada"
+        }
+      ]
+    },
+    {
+      "nombre": "República Centroafricana",
+      "rol": "país afectado / perpetradores estatales y no estatales señalados",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La MINUSCA documentó varios casos de violencia sexual relacionada con el conflicto (violaciones individuales y colectivas, matrimonios forzados y esclavitud sexual) que afectaron a 215 mujeres, 191 niñas y 7 hombres. ... 3R, otras facciones de la CPC, así como el recién formado CPC-F, y UPC fueron los principales autores ... algunos elementos de 3R utilizaron la violencia sexual para imponer su control sobre las explotaciones mineras.",
+          "tipo_violencia": "violación individual y colectiva, matrimonio forzado, esclavitud sexual"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025, la MINUSCA documentó varios casos de violencia sexual relacionada con el conflicto (violaciones individuales y colectivas, matrimonios forzados y esclavitud sexual) que afectaron a 239 mujeres, 217 niñas, 30 hombres y 7 niños, en los que participaron elementos de la UPC y el 3R ... Miembros de las fuerzas de defensa y seguridad nacionales ... estuvieron implicados en 79 casos.",
+          "tipo_violencia": "violación individual y colectiva, matrimonio forzado, esclavitud sexual"
+        }
+      ]
+    },
+    {
+      "nombre": "Colombia",
+      "rol": "país afectado / perpetradores estatales y no estatales señalados / país con avances en justicia transicional",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La Unidad para las Víctimas registró casos de violencia sexual relacionada con el conflicto que afectaron a 1.009 mujeres, 73 hombres y 15 personas con orientación sexual e identidad de género diversas. ... Se identificó como autores a elementos de las Autodefensas Gaitanistas de Colombia ..., el ELN, facciones disidentes de las FARC y el Estado Mayor de los Bloques y Frentes. Al parecer, también estuvieron implicados miembros de la policía y de las fuerzas armadas nacionales.",
+          "tipo_violencia": "violencia sexual en conflicto, reclutamiento y explotación sexual de menores"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "La Unidad para las Víctimas registró casos de violencia sexual relacionada con los conflictos que afectaron a 4.113 personas; 753 de ellos tuvieron lugar en 2025 ... En más de la mitad de los casos denunciados seguía sin conocerse la identidad del autor y en el 27,4 % de los casos se señaló la autoría de grupos guerrilleros.",
+          "tipo_violencia": "violencia sexual en conflicto, trata, esclavitud sexual, matrimonio forzado"
+        }
+      ]
+    },
+    {
+      "nombre": "República Democrática del Congo",
+      "rol": "país afectado / perpetradores estatales y no estatales señalados",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La MONUSCO documentó 823 casos de violaciones individuales y colectivas, esclavitud sexual y matrimonios forzados ... que afectaron a 416 mujeres, 391 niñas, 7 niños y 9 hombres. ... Los agentes estatales fueron responsables de 198 casos: 178 de ellos fueron perpetrados por las Fuerzas Armadas, 13 por la Policía Nacional Congolesa y 7 por otros agentes estatales.",
+          "tipo_violencia": "violación individual y colectiva, esclavitud sexual, matrimonio forzado"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025 la MONUSCO verificó 1.534 casos de violencia sexual relacionada con los conflictos (un aumento del 86 % con respecto a 2024) ... afectaron a 854 mujeres, 672 niñas, 4 hombres y 4 niños ... Se atribuyeron unos 1.229 casos a grupos armados no estatales ... Se atribuyeron unos 305 casos a agentes estatales, de los cuales 285 implicaban a las Fuerzas Armadas (lo que supone un aumento del 60 % con respecto a 2024).",
+          "tipo_violencia": "violación, violación colectiva, esclavitud sexual, matrimonio forzado"
+        }
+      ]
+    },
+    {
+      "nombre": "Israel y el Territorio Palestino Ocupado",
+      "rol": "país afectado / perpetradores estatales y no estatales señalados",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "Se recuperaron cuerpos totalmente desnudos o parcialmente desnudos ... con las manos atadas ... los patrones que consisten en desnudar y reprimir a las víctimas pueden ser indicativos de algunas formas de violencia sexual. ... Las Naciones Unidas verificaron 12 incidentes de violencia sexual relacionada con el conflicto cometidos por las fuerzas armadas y de seguridad israelíes ... contra siete hombres palestinos en las cárceles de Néguev/Ketziot y Ofer y en el centro de detención de Etzion.",
+          "tipo_violencia": "violencia sexual en detención, tortura sexualizada, desnudez forzada"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025, las Naciones Unidas verificaron múltiples casos de violencia sexual relacionada con el conflicto, incluida la utilizada como forma de tortura, infligida a 14 hombres, 7 mujeres, 9 niños y 1 niña de la Franja de Gaza y la Ribera Occidental. Trece de estos casos se produjeron en 2025, y 18 en 2023 y 2024.",
+          "tipo_violencia": "violación, violación con objetos, violación colectiva, tortura sexualizada, desnudez forzada"
+        }
+      ]
+    },
+    {
+      "nombre": "Libia",
+      "rol": "país afectado / perpetradores estatales y no estatales señalados",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La UNSMIL verificó varios casos de violencia sexual relacionada con el conflicto que afectaron a 20 mujeres migrantes y solicitantes de asilo y a 2 niñas libias. Las víctimas fueron sometidas a violación y trata con fines de explotación sexual en diversos centros de detención administrados por el Departamento de Lucha contra la Migración Ilegal.",
+          "tipo_violencia": "violación, trata con fines de explotación sexual, violencia sexual en detención"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025, la UNSMIL verificó varios casos de violencia sexual relacionada con el conflicto que afectaron a 45 mujeres y niñas migrantes y refugiadas. ... Las violaciones tuvieron lugar en centros de detención ilegales y campamentos provisionales ... gestionados por redes de trata y grupos armados afiliados al Ejército Nacional Libio.",
+          "tipo_violencia": "violación, explotación sexual, violencia sexual en detención"
+        }
+      ]
+    },
+    {
+      "nombre": "Malí",
+      "rol": "país afectado / perpetradores no estatales señalados",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "Las Naciones Unidas consiguieron confirmar que se había violado a 32 niñas. Además, los proveedores de servicios humanitarios registraron 157 casos de violencia sexual cometida por actores armados (violaciones individuales y en grupo, matrimonios forzados y esclavitud sexual, por ejemplo) que afectaron a 120 mujeres y 37 niñas.",
+          "tipo_violencia": "violación individual y colectiva, matrimonio forzado, esclavitud sexual"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "Las Naciones Unidas verificaron casos de violencia sexual que afectaron a 22 niñas de entre 14 y 17 años, perpetrados por grupos armados como Jama‘a Nusrat ul-Islam wa al-Muslimin y la Provincia del Sahel del Estado Islámico. Además, las organizaciones humanitarias registraron casos de violación, esclavitud sexual, agresión sexual ... que afectaron a 45 mujeres y 16 niñas, entre ellas 6 personas con discapacidad.",
+          "tipo_violencia": "violación, esclavitud sexual, agresión sexual"
+        }
+      ]
+    },
+    {
+      "nombre": "Myanmar",
+      "rol": "país afectado / perpetrador estatal señalado (fuerzas armadas)",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "En 2024 siguieron denunciándose casos de violencia sexual relacionada con el conflicto contra mujeres, hombres, niñas, niños y personas lesbianas, gais, bisexuales, transgénero, queer e intersexuales, cometidos principalmente por las fuerzas armadas del país ... Se denunciaron violaciones anales y casos de penetración con objetos a manos de uno o varios agresores.",
+          "tipo_violencia": "violación, violación con objetos, violencia sexual en detención, esclavitud sexual"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "Persistió el uso generalizado y sistemático de la violencia sexual como táctica de guerra y represión política por parte del ejército de Myanmar. ... En junio hasta 25 mujeres habrían sido violadas por militares durante redadas en el centro de Myanmar.",
+          "tipo_violencia": "violación, violación colectiva, esclavitud sexual, violencia sexual en detención"
+        }
+      ]
+    },
+    {
+      "nombre": "Somalia",
+      "rol": "país afectado / perpetradores estatales y no estatales señalados",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La UNSOM y, posteriormente, la UNTMIS confirmaron los casos de violencia sexual relacionada con el conflicto (violaciones individuales y colectivas y matrimonios forzados, entre otros incidentes) de 265 niñas, 24 mujeres y 2 niños. La mayoría de los incidentes se atribuyeron, en primer lugar, a Al-Shabaab y, en segundo lugar, a distintos autores armados no identificados.",
+          "tipo_violencia": "violación individual y colectiva, matrimonio forzado"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025, la UNTMIS verificó casos de violencia sexual relacionada con el conflicto, entre ellos violaciones, violaciones colectivas, matrimonios forzados, agresiones sexuales y embarazos forzados, que afectaron a 201 niñas y 21 mujeres ... Se atribuyeron a agentes armados no identificados, seguidos de Al-Shabaab y miembros de milicias de clanes.",
+          "tipo_violencia": "violación, violación colectiva, matrimonio forzado, agresión sexual, embarazo forzado"
+        }
+      ]
+    },
+    {
+      "nombre": "Sudán del Sur",
+      "rol": "país afectado / perpetradores estatales y no estatales señalados",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La UNMISS documentó incidentes de violencia sexual relacionada con el conflicto, entre ellas violaciones individuales y colectivas, sometimiento a esclavitud sexual, y abortos y matrimonios forzados, que afectaron a 150 mujeres, 101 niñas, 7 hombres y 2 niños. ... Las milicias comunitarias protagonizaron el 52 % de los incidentes.",
+          "tipo_violencia": "violación individual y colectiva, esclavitud sexual, aborto forzado, matrimonio forzado"
+        }
+      ]
+    },
+    {
+      "nombre": "Sudán",
+      "rol": "país afectado / perpetrador no estatal señalado (Fuerzas de Apoyo Rápido)",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "Las Naciones Unidas documentaron varios casos de violencia sexual ... cometidos contra 90 mujeres, 36 niñas, 4 hombres y 1 niño ... En la mayoría de los casos habían participado elementos de las Fuerzas de Apoyo Rápido y miembros de las milicias aliadas. ... Desde principios de 2024, los proveedores de servicios llevan registrado un total de 221 casos de violación cometidos contra 147 niñas y 74 niños.",
+          "tipo_violencia": "violación individual y colectiva, secuestro con fines de explotación sexual"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025, las Naciones Unidas documentaron casos ... perpetrados contra 275 mujeres, 218 niñas, 5 niños y 3 hombres ... En la mayoría de los casos, se atribuyó la responsabilidad a las Fuerzas de Apoyo Rápido y las milicias armadas aliadas. ... al menos 77 mujeres, 28 niñas y 3 niños fueron sometidos a violencia sexual, que incluyeron violaciones, violaciones colectivas y esclavitud sexual.",
+          "tipo_violencia": "violación, violación colectiva, esclavitud sexual, matrimonio forzado, embarazo forzado"
+        }
+      ]
+    },
+    {
+      "nombre": "República Árabe Siria",
+      "rol": "país afectado / perpetradores estatales y no estatales señalados",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La Comisión Internacional Independiente de Investigación sobre la República Árabe Siria informó de que se habían cometido violaciones en algunos centros de detención. ... entre marzo de 2011 y diciembre de 2020, se utilizaron diferentes formas de violencia sexual contra mujeres, hombres, niñas y niños ... en al menos 20 centros de detención oficiales y no oficiales del gobierno anterior.",
+          "tipo_violencia": "violación, violencia sexual en detención, tortura sexualizada"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025, tras la puesta en libertad de miles de personas de los centros de detención después del fin del anterior régimen sirio, las Naciones Unidas han documentado patrones de violación y violencia sexual que se prolongaron durante años ... Las mujeres detenidas fueron sometidas principalmente a violaciones, mientras que los hombres detenidos, incluidos los niños, sufrieron violencia sexual como forma de tortura.",
+          "tipo_violencia": "violación, tortura sexualizada, matrimonio forzado"
+        }
+      ]
+    },
+    {
+      "nombre": "Ucrania",
+      "rol": "país afectado / perpetrador estatal señalado (Federación de Rusia)",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La misión de vigilancia de los derechos humanos en Ucrania documentó 209 incidentes de violencia sexual relacionada con el conflicto (violaciones, intentos de violación, amenazas de violación y castración, mutilación genital, descargas eléctricas y golpes en los genitales, y desnudez forzada) cometidos contra 156 hombres, 46 mujeres, 6 niñas y 1 niño por las fuerzas armadas rusas, las fuerzas del orden y el personal penitenciario.",
+          "tipo_violencia": "violación, amenaza de violación y castración, mutilación genital, descargas eléctricas, desnudez forzada"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "La misión de vigilancia de los derechos humanos en Ucrania verificó 310 casos de violencia sexual relacionada con el conflicto ... que afectaron a 280 hombres, 26 mujeres y 4 niñas, perpetrados por las fuerzas armadas y de seguridad rusas ... De los 310 casos documentados, 232 (el 74,83 %) implicaban múltiples formas de violencia sexual, y 195 (el 62,9 %) implicaban múltiples incidentes de violencia sexual.",
+          "tipo_violencia": "violación, violación colectiva, mutilación genital, descargas eléctricas, desnudez forzada"
+        }
+      ]
+    },
+    {
+      "nombre": "Yemen",
+      "rol": "país afectado / perpetrador no estatal señalado (huzíes)",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "Las Naciones Unidas confirmaron que seis niños y cinco niñas habían sido violados y sometidos a otras formas de violencia sexual. ... se informó de que mujeres, niños y hombres habían sufrido violencia sexual, también como forma de tortura, mientras estaban privados de libertad ... el Zainabiyat ... estaba reclutando a más niñas, a menudo secuestrándolas ... y se las sometía a actos de violencia sexual.",
+          "tipo_violencia": "violación, violencia sexual en detención, matrimonio infantil forzado"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "La violencia sexual se utilizó de forma estratégica para desmoralizar a los disidentes, por ejemplo, desnudando a las mujeres de la familia delante de los detenidos varones, además de los casos de violación de hombres durante su detención. ... las Zaynabiyat ... han participado activamente en actos de violencia sexual relacionados con el conflicto, perpetrados como forma de tortura o castigo contra las mujeres.",
+          "tipo_violencia": "violación, tortura sexualizada, desnudez forzada, matrimonio infantil forzado"
+        }
+      ]
+    },
+    {
+      "nombre": "Haití",
+      "rol": "país afectado / perpetrador no estatal señalado (bandas criminales)",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La BINUH verificó distintos casos de violencia sexual que afectaron a 523 niñas, 142 mujeres y 43 niños. En un único incidente, 23 mujeres fueron secuestradas y violadas por el grupo delictivo organizado 103 Zombie en Gressier.",
+          "tipo_violencia": "violación individual y colectiva, violencia sexual en desplazamiento"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "La BINUH verificó casos que afectaban a 1.668 mujeres, 187 niñas, 2 hombres y seis niños, lo que supone un notable aumento del 163 % en comparación con 2024. La violación colectiva siguió siendo la forma más frecuente, representando el 77 % de las agresiones, seguida de la violación (18 %).",
+          "tipo_violencia": "violación colectiva, violación, esclavitud sexual"
+        }
+      ]
+    },
+    {
+      "nombre": "Nigeria",
+      "rol": "país afectado / perpetrador no estatal señalado",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "Las Naciones Unidas verificaron distintos incidentes de violación, matrimonio forzado y otras formas de violencia sexual, a menudo tras el secuestro y reclutamiento de las víctimas, en los estados de Borno y Adamawa, cometidos contra 412 niñas y 7 niños, en la mayoría de los cuales estaban implicados miembros de Boko Haram y la ISWAP.",
+          "tipo_violencia": "violación, matrimonio forzado, violencia sexual tras secuestro"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "Las Naciones Unidas confirmaron que 324 niñas y 7 niños habían sido violados y sometidos a otras formas de violencia sexual, en particular en los estados de Borno, Adamawa y Yobe. Estos casos se produjeron durante secuestros perpetrados por grupos armados, tras los cuales se obligó a los niños a contraer matrimonio.",
+          "tipo_violencia": "violación, matrimonio forzado"
+        }
+      ]
+    },
+    {
+      "nombre": "Etiopía",
+      "rol": "país afectado / perpetradores estatales y no estatales señalados",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "Las Naciones Unidas confirmaron distintos episodios de violencia sexual relacionada con el conflicto ... en las regiones de Amara y Oromiya occidental.",
+          "tipo_violencia": "violencia sexual en conflicto"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "Las Naciones Unidas verificaron que se habían producido actos de violencia sexual (entre ellos violaciones y violaciones colectivas) contra siete mujeres y siete niñas en Oromiya y Tigré, perpetrados por grupos armados no estatales ... Los casos también implicaban a miembros de las fuerzas estatales, entre ellas las Fuerzas Nacionales de Defensa de Etiopía, la policía de Oromiya y Amara, así como a elementos de las Fuerzas de Defensa de Eritrea.",
+          "tipo_violencia": "violación, violación colectiva, introducción de objetos, transmisión intencionada del VIH"
+        }
+      ]
+    },
+    {
+      "nombre": "Bosnia y Herzegovina",
+      "rol": "país en posconflicto / acceso a reparaciones",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "las reparaciones seguían siendo desiguales e insuficientes y dependían de normas distintas según el lugar de residencia de los supervivientes. ... en el territorio de la República Srpska ha vencido el plazo para reclamar la condición de víctima fijado en la ley de protección de las víctimas de la tortura en tiempos de guerra.",
+          "tipo_violencia": "violencia sexual en conflicto (legado)"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "de las entre 20.000 y 50.000 víctimas estimadas de violencia sexual relacionada con el conflicto, unas 1.000 han recibido una indemnización.",
+          "tipo_violencia": "violencia sexual en conflicto (legado)"
+        }
+      ]
+    },
+    {
+      "nombre": "Kosovo",
+      "rol": "país en posconflicto / acceso a reparaciones",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "una investigación sobre las consecuencias a largo plazo de la violencia sexual en Kosovo reveló que el 86 % de las personas supervivientes seguían teniendo trastorno de estrés postraumático 25 años después del conflicto.",
+          "tipo_violencia": "violencia sexual en conflicto (legado)"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "la comisión de indemnizaciones de Kosovo ha aprobado 1.884 solicitudes, 77 de ellas en 2025. Sin embargo, las personas cuyas solicitudes hayan sido aprobadas deben presentar una solicitud adicional para poder recibir efectivamente la indemnización. El mandato de la comisión se prorrogó hasta 2028.",
+          "tipo_violencia": "violencia sexual en conflicto (legado)"
+        }
+      ]
+    },
+    {
+      "nombre": "Iraq",
+      "rol": "país en posconflicto / acceso a reparaciones / perpetrador no estatal (Dáesh) señalado",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "En el Iraq, el Gobierno siguió desembolsando indemnizaciones con arreglo a la Ley de Apoyo a las Supervivientes Yazídies ... hasta diciembre de 2024, había aprobado un total de 2.276 solicitudes. ... De los 6.417 yazídíes secuestrados por el Dáesh, 1.229 mujeres y 1.363 hombres siguen desaparecidos.",
+          "tipo_violencia": "esclavitud sexual, secuestro, violencia sexual en conflicto (legado)"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "se aprobaron 2.587 solicitudes de indemnización, de las cuales 1.341 correspondían a supervivientes de la violencia sexual de las comunidades yazidí, turcomana, shabak y cristiana. ... la Dirección General de Asuntos de los Supervivientes ... solo derivó a 17 personas para que recibieran el apoyo, lo que supone una disminución del 91 % en comparación con 2024.",
+          "tipo_violencia": "esclavitud sexual, secuestro, violencia sexual en conflicto (legado)"
+        }
+      ]
+    },
+    {
+      "nombre": "Nepal",
+      "rol": "país en posconflicto / justicia transicional",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "el Parlamento Federal aprobó en agosto una modificación de la Ley de Justicia de Transición ... Se eliminó el plazo de prescripción para presentar casos relacionados con la violencia sexual, y se abrió un período de tres meses para el registro de denuncias.",
+          "tipo_violencia": "violencia sexual en conflicto (legado)"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "la reapertura del plazo para la presentación de denuncias dio lugar a la presentación de más de 4.000 denuncias relacionadas con la violencia sexual; sin embargo, las organizaciones de la sociedad civil han señalado que este plazo único de tres meses para la presentación de denuncias excluyó del proceso a muchas personas afectadas.",
+          "tipo_violencia": "violencia sexual en conflicto (legado)"
+        }
+      ]
+    },
+    {
+      "nombre": "Sri Lanka",
+      "rol": "país en posconflicto / justicia transicional",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "hubo denuncias de violaciones de los derechos humanos, también de violencia sexual contra personas tamiles por parte de las fuerzas de seguridad en zonas especialmente afectadas por el conflicto ... en medio de los continuos retrasos del proceso de reconciliación y rendición de cuentas.",
+          "tipo_violencia": "violencia sexual en conflicto (legado)"
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "La violencia sexual relacionada con el conflicto cometida durante el conflicto en Sri Lanka siguió quedando impune, dada la falta de mecanismos nacionales que garanticen la rendición de cuentas.",
+          "tipo_violencia": "violencia sexual en conflicto (legado)"
+        }
+      ]
+    }
+  ],
+  "actores_institucionales": [
+    {
+      "nombre": "ONU Mujeres",
+      "tipo": "organismo ONU",
+      "rol": "implementador / defensor / generador de datos",
+      "menciones": [
+        {
+          "fuente_id": "doc-002",
+          "cita": "En 2024, ONU-Mujeres puso en marcha el Monitor de las Mujeres en los Procesos de Paz para recopilar datos cuantitativos y cualitativos sobre los esfuerzos de paz de las mujeres y su inclusión en los procesos de paz y colmar una importante carencia de datos a nivel mundial."
+        },
+        {
+          "fuente_id": "doc-002",
+          "cita": "En marzo de 2025, ONU-Mujeres llevó a cabo una encuesta mundial rápida para comprender el impacto de estas reducciones de financiación en los grupos locales dirigidos por mujeres en situaciones de crisis."
+        }
+      ]
+    },
+    {
+      "nombre": "MINUSCA (Misión Multidimensional Integrada de Estabilización de las Naciones Unidas en la República Centroafricana)",
+      "tipo": "operación de paz ONU",
+      "rol": "implementador / documentador",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La MINUSCA documentó varios casos de violencia sexual relacionada con el conflicto ... que afectaron a 215 mujeres, 191 niñas y 7 hombres."
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "Los Tribunales de Apelación de Bangui y Buar celebraron audiencias penales a puerta cerrada (con el fin de proteger la identidad de las víctimas y los testigos) para examinar 23 casos de violencia sexual, con el apoyo de la MINUSCA."
+        }
+      ]
+    },
+    {
+      "nombre": "MONUSCO (Misión de Estabilización de las Naciones Unidas en la República Democrática del Congo)",
+      "tipo": "operación de paz ONU",
+      "rol": "implementador / documentador",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "En 2024, la MONUSCO documentó 823 casos de violaciones individuales y colectivas, esclavitud sexual y matrimonios forzados ... Las Células de Apoyo a la Fiscalía de la MONUSCO siguen prestando apoyo técnico y logístico a las autoridades judiciales militares para organizar misiones de investigación y audiencias en tribunales móviles."
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "en 2025 la MONUSCO verificó 1.534 casos de violencia sexual relacionada con los conflictos (un aumento del 86 % con respecto a 2024)."
+        }
+      ]
+    },
+    {
+      "nombre": "UNMISS (Misión de las Naciones Unidas en Sudán del Sur)",
+      "tipo": "operación de paz ONU",
+      "rol": "implementador / documentador",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La UNMISS documentó incidentes de violencia sexual relacionada con el conflicto ... que afectaron a 150 mujeres, 101 niñas, 7 hombres y 2 niños. ... la UNMISS prestó apoyo jurídico y logístico para resolver dos casos de violencia sexual por medio de un consejo de guerra general celebrado en agosto."
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "la UNMISS prestó apoyo al Tribunal Militar General del estado de Bahr el-Ghazal Occidental, que juzgó seis causas relacionadas con delitos cometidos durante el conflicto, incluido un caso de violencia sexual relacionada con el conflicto."
+        }
+      ]
+    },
+    {
+      "nombre": "UNSMIL (Misión de Apoyo de las Naciones Unidas en Libia)",
+      "tipo": "misión política ONU",
+      "rol": "documentador",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "La UNSMIL verificó varios casos de violencia sexual relacionada con el conflicto que afectaron a 20 mujeres migrantes y solicitantes de asilo y a 2 niñas libias."
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025, la UNSMIL verificó varios casos de violencia sexual relacionada con el conflicto que afectaron a 45 mujeres y niñas migrantes y refugiadas."
+        }
+      ]
+    },
+    {
+      "nombre": "UNAMA (Misión de Asistencia de las Naciones Unidas en el Afganistán)",
+      "tipo": "misión política ONU",
+      "rol": "documentador",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "En 2024, la UNAMA verificó distintos incidentes de violencia sexual, tales como violaciones y matrimonios forzados, que se habían cometido contra cinco mujeres, cuatro niñas y dos niños."
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025, la UNAMA verificó distintos incidentes de violencia sexual, como violaciones, violaciones colectivas, matrimonios forzados y desnudez forzada, que se habían cometido contra 15 mujeres y 6 niñas."
+        }
+      ]
+    },
+    {
+      "nombre": "BINUH (Oficina Integrada de las Naciones Unidas en Haití)",
+      "tipo": "misión política ONU",
+      "rol": "documentador",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "En 2024, la BINUH verificó distintos casos de violencia sexual que afectaron a 523 niñas, 142 mujeres y 43 niños."
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "La BINUH verificó casos que afectaban a 1.668 mujeres, 187 niñas, 2 hombres y seis niños, lo que supone un notable aumento del 163 % en comparación con 2024."
+        }
+      ]
+    },
+    {
+      "nombre": "Equipo de Expertos sobre el Estado de Derecho y la Violencia Sexual en los Conflictos",
+      "tipo": "mecanismo ONU",
+      "rol": "implementador / asistencia técnica",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "el Equipo hizo avances significativos para administrar justicia en los asuntos relacionados con las personas supervivientes en varios contextos ... En Colombia, el Equipo llevó a cabo una misión ... En marzo de 2024, en La Haya, el Equipo organizó la primera conferencia internacional de fiscales dedicada a la rendición de cuentas por actos de violencia sexual relacionada con los conflictos."
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "En 2025, el Equipo puso en marcha la red de enjuiciamiento de la violencia sexual relacionada con los conflictos, comunidad de prácticas destinada a fiscales y profesionales del ámbito nacional."
+        }
+      ]
+    },
+    {
+      "nombre": "Red interinstitucional Acción de las Naciones Unidas contra la Violencia Sexual en los Conflictos",
+      "tipo": "red ONU",
+      "rol": "implementador / coordinador",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "la red interinstitucional Acción de las Naciones Unidas contra la Violencia Sexual en los Conflictos, que reúne a 26 entidades miembros de la Organización ... A través de la red se han impulsado 60 proyectos conjuntos en 18 situaciones de conflicto."
+        },
+        {
+          "fuente_id": "doc-003",
+          "cita": "la red ... que reúne a 27 entidades miembros ... Financiada exclusivamente mediante contribuciones voluntarias al fondo fiduciario multipartito para la violencia sexual relacionada con los conflictos, la red ha llevado a cabo 66 proyectos en 22 zonas de conflicto desde 2008."
+        }
+      ]
+    },
+    {
+      "nombre": "Consejo de Seguridad de las Naciones Unidas",
+      "tipo": "órgano intergubernamental",
+      "rol": "legislador / sancionador",
+      "menciones": [
+        {
+          "fuente_id": "doc-001",
+          "cita": "En junio de 2024, el Consejo de Seguridad se refirió explícitamente en su resolución 2734 (2024) a la violencia sexual y de género como un acto punible por parte del Comité del Consejo de Seguridad dimanante de las resoluciones 1267 (1999), 1989 (2011) y 2253 (2015)."
+        },
+        {
+          "fuente_id": "doc-002",
+          "cita": "En 2024, más del 60 % de las decisiones adoptadas por el Consejo de Seguridad incluían formulaciones relacionadas con el género, lo que supone un ligero aumento respecto al año anterior y casi 50 puntos porcentuales más que en 2000."
+        }
+      ]
+    }
+  ],
+  "tipos_violencia": [
+    {
+      "categoria": "Violación",
+      "contexto": "conflicto activo, detención, desplazamiento",
+      "casos_reportados": [
+        {
+          "fuente_id": "doc-001",
+          "pais": "República Democrática del Congo",
+          "casos": 823,
+          "detalle": "violaciones individuales y colectivas documentadas por MONUSCO en 2024"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "Sudán",
+          "casos": 501,
+          "detalle": "275 mujeres, 218 niñas, 5 niños y 3 hombres documentados en 2025"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "Ucrania",
+          "casos": 310,
+          "detalle": "casos verificados en 2025, 232 con múltiples formas de violencia sexual"
+        }
+      ]
+    },
+    {
+      "categoria": "Violación colectiva",
+      "contexto": "conflicto activo, ataques a aldeas, detención",
+      "casos_reportados": [
+        {
+          "fuente_id": "doc-003",
+          "pais": "Haití",
+          "casos": null,
+          "detalle": "La violación colectiva representó el 77 % de las agresiones verificadas por BINUH en 2025"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "Sudán",
+          "casos": null,
+          "detalle": "al menos 77 mujeres, 28 niñas y 3 niños sometidos a violaciones y violaciones colectivas durante ofensiva contra campamento de Zamzam"
+        }
+      ]
+    },
+    {
+      "categoria": "Esclavitud sexual",
+      "contexto": "conflicto activo, secuestro, detención",
+      "casos_reportados": [
+        {
+          "fuente_id": "doc-001",
+          "pais": "Iraq",
+          "casos": null,
+          "detalle": "mujeres y niñas yazidíes secuestradas en 2014 y vendidas múltiples veces como esclavas sexuales"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "República Democrática del Congo",
+          "casos": null,
+          "detalle": "casos documentados por MONUSCO en 2025, incluyendo esclavitud sexual"
+        }
+      ]
+    },
+    {
+      "categoria": "Matrimonio forzado",
+      "contexto": "conflicto activo, secuestro, desplazamiento",
+      "casos_reportados": [
+        {
+          "fuente_id": "doc-001",
+          "pais": "Somalia",
+          "casos": null,
+          "detalle": "matrimonios forzados como forma de compensar a combatientes de Al-Shabaab"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "Nigeria",
+          "casos": null,
+          "detalle": "niñas obligadas a contraer matrimonio tras secuestros por grupos armados"
+        }
+      ]
+    },
+    {
+      "categoria": "Embarazo forzado",
+      "contexto": "conflicto activo, violación",
+      "casos_reportados": [
+        {
+          "fuente_id": "doc-003",
+          "pais": "Somalia",
+          "casos": null,
+          "detalle": "casos verificados por UNTMIS en 2025 incluyendo embarazos forzados"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "Sudán",
+          "casos": null,
+          "detalle": "embarazos forzados documentados como parte de violencia sexual relacionada con el conflicto"
+        }
+      ]
+    },
+    {
+      "categoria": "Mutilación genital",
+      "contexto": "detención, tortura",
+      "casos_reportados": [
+        {
+          "fuente_id": "doc-001",
+          "pais": "Libia",
+          "casos": null,
+          "detalle": "algunos elementos del grupo armado Kaniyat mutilaron genitales masculinos como método de tortura"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "Ucrania",
+          "casos": null,
+          "detalle": "casos de mutilación genital documentados por la misión de vigilancia de derechos humanos"
+        }
+      ]
+    },
+    {
+      "categoria": "Violencia sexual en detención / tortura sexualizada",
+      "contexto": "detención, interrogatorios",
+      "casos_reportados": [
+        {
+          "fuente_id": "doc-001",
+          "pais": "Israel y el Territorio Palestino Ocupado",
+          "casos": 12,
+          "detalle": "incidentes verificados por Naciones Unidas contra siete hombres palestinos en cárceles israelíes"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "Ucrania",
+          "casos": null,
+          "detalle": "violencia sexual contra prisioneros de guerra y detenidos civiles, incluyendo descargas eléctricas en genitales"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "República Árabe Siria",
+          "casos": null,
+          "detalle": "patrones de violación y violencia sexual en centros de detención del anterior régimen"
+        }
+      ]
+    },
+    {
+      "categoria": "Trata con fines de explotación sexual",
+      "contexto": "conflicto, desplazamiento, migración",
+      "casos_reportados": [
+        {
+          "fuente_id": "doc-001",
+          "pais": "Libia",
+          "casos": null,
+          "detalle": "mujeres migrantes y refugiadas sometidas a trata con fines de explotación sexual en centros de detención"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "Haití",
+          "casos": null,
+          "detalle": "esclavitud y explotación sexuales como práctica sistemática por parte de bandas"
+        }
+      ]
+    },
+    {
+      "categoria": "Desnudez forzada",
+      "contexto": "detención, espacios públicos",
+      "casos_reportados": [
+        {
+          "fuente_id": "doc-001",
+          "pais": "Israel y el Territorio Palestino Ocupado",
+          "casos": null,
+          "detalle": "se obligó a hombres, mujeres, niños y niñas palestinos a permanecer desnudos durante largos períodos"
+        },
+        {
+          "fuente_id": "doc-003",
+          "pais": "Afganistán",
+          "casos": null,
+          "detalle": "incidentes de desnudez forzada verificados por UNAMA en 2025"
+        }
+      ]
+    }
+  ],
+  "datos_cuantitativos": [
+    {
+      "indicador": "Casos verificados de violencia sexual relacionada con conflictos a nivel global",
+      "valor": null,
+      "unidad": "casos",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "El informe indica un aumento considerable respecto a 2024, pero no proporciona un total global consolidado"
+    },
+    {
+      "indicador": "Aumento de casos documentados de violencia sexual relacionada con conflictos en dos años",
+      "valor": 87,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Aumento del 87 % en dos años según el informe S/2025/556"
+    },
+    {
+      "indicador": "Casos de violencia sexual en Kivu del Norte (RDC) registrados por proveedores de servicios",
+      "valor": 38000,
+      "unidad": "casos",
+      "fuente_id": "doc-002",
+      "fecha_dato": "primeros meses de 2025",
+      "nota": "Cifra calificada como alarmante por prestadores de servicios"
+    },
+    {
+      "indicador": "Casos de violación registrados en Sudán contra niñas y niños",
+      "valor": 221,
+      "unidad": "casos",
+      "fuente_id": "doc-001",
+      "fecha_dato": "2024",
+      "nota": "147 niñas y 74 niños; 16 % de supervivientes menores de 5 años"
+    },
+    {
+      "indicador": "Aumento de la demanda de apoyo vital para supervivientes de violencia sexual en Sudán",
+      "valor": 288,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2023-2024",
+      "nota": "Más de 12 millones de mujeres y niñas en riesgo"
+    },
+    {
+      "indicador": "Casos verificados por BINUH en Haití",
+      "valor": 1857,
+      "unidad": "casos",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "1.668 mujeres, 187 niñas, 2 hombres y 6 niños; aumento del 163 % respecto a 2024"
+    },
+    {
+      "indicador": "Casos verificados por MONUSCO en RDC",
+      "valor": 1534,
+      "unidad": "casos",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "Aumento del 86 % respecto a 2024; 854 mujeres, 672 niñas, 4 hombres y 4 niños"
+    },
+    {
+      "indicador": "Casos de violencia sexual en RDC registrados por proveedores de servicios (enero-septiembre)",
+      "valor": 90199,
+      "unidad": "casos",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "Incluye violaciones perpetradas principalmente por grupos armados"
+    },
+    {
+      "indicador": "Casos verificados por la misión de vigilancia de derechos humanos en Ucrania",
+      "valor": 310,
+      "unidad": "casos",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "280 hombres, 26 mujeres y 4 niñas; 74,83 % con múltiples formas de violencia sexual"
+    },
+    {
+      "indicador": "Casos verificados por UNAMA en Afganistán",
+      "valor": 21,
+      "unidad": "casos",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "15 mujeres y 6 niñas; incluye violaciones, violaciones colectivas, matrimonios forzados y desnudez forzada"
+    },
+    {
+      "indicador": "Casos verificados por UNMISS en Sudán del Sur",
+      "valor": 260,
+      "unidad": "casos",
+      "fuente_id": "doc-001",
+      "fecha_dato": "2024",
+      "nota": "150 mujeres, 101 niñas, 7 hombres y 2 niños"
+    },
+    {
+      "indicador": "Casos verificados por UNTMIS en Somalia",
+      "valor": 222,
+      "unidad": "casos",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "201 niñas y 21 mujeres; incluye violaciones, violaciones colectivas, matrimonios forzados, agresiones sexuales y embarazos forzados"
+    },
+    {
+      "indicador": "Casos verificados por MINUSCA en República Centroafricana",
+      "valor": 493,
+      "unidad": "casos",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "239 mujeres, 217 niñas, 30 hombres y 7 niños"
+    },
+    {
+      "indicador": "Casos verificados por UNSMIL en Libia",
+      "valor": 45,
+      "unidad": "casos",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "45 mujeres y niñas migrantes y refugiadas"
+    },
+    {
+      "indicador": "Mujeres y niñas que viven a menos de 50 km de un conflicto letal",
+      "valor": 676,
+      "unidad": "millones",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Cifra y porcentaje más altos registrados desde la década de 1990"
+    },
+    {
+      "indicador": "Mujeres y niños muertos en conflictos armados (aumento entre bienios)",
+      "valor": 4,
+      "unidad": "multiplicador (se cuadruplicó)",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2023-2024",
+      "nota": "7 de cada 10 mujeres muertas en conflictos en todo el mundo murieron en Gaza"
+    },
+    {
+      "indicador": "Mujeres y niñas afectadas por recortes de financiación en Ucrania",
+      "valor": 640000,
+      "unidad": "personas",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2025",
+      "nota": "Afectadas por recortes en financiación para apoyo psicosocial, servicios de violencia de género y espacios seguros"
+    },
+    {
+      "indicador": "Mujeres y niñas refugiadas afectadas por recortes de financiación del ACNUR en Sudán del Sur",
+      "valor": 80000,
+      "unidad": "personas",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2025",
+      "nota": "Cifra potencial"
+    },
+    {
+      "indicador": "Espacios seguros cerrados en Yemen por suspensión de financiación",
+      "valor": 22,
+      "unidad": "espacios",
+      "fuente_id": "doc-002",
+      "fecha_dato": "principios de 2025",
+      "nota": "Privó de servicios a más de 11.000 mujeres y niñas en zonas de alto riesgo"
+    },
+    {
+      "indicador": "Centros de atención integral y espacios seguros cerrados en Somalia",
+      "valor": 120,
+      "unidad": "centros",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "Solo quedan 80 en funcionamiento; disminución del 42 % en casos denunciados"
+    },
+    {
+      "indicador": "Centros de salud cerrados en Afganistán",
+      "valor": 400,
+      "unidad": "centros",
+      "fuente_id": "doc-003",
+      "fecha_dato": "julio 2025",
+      "nota": "Además de cientos de puntos de atención para violencia de género"
+    },
+    {
+      "indicador": "Solicitudes de indemnización aprobadas en Iraq (Ley de Apoyo a las Supervivientes Yazidíes)",
+      "valor": 2587,
+      "unidad": "solicitudes",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "1.341 correspondían a supervivientes de violencia sexual"
+    },
+    {
+      "indicador": "Yazidíes secuestrados por Dáesh que siguen desaparecidos",
+      "valor": 2550,
+      "unidad": "personas",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "1.221 mujeres y 1.329 hombres"
+    },
+    {
+      "indicador": "Solicitudes aprobadas por la comisión de indemnizaciones de Kosovo",
+      "valor": 1884,
+      "unidad": "solicitudes",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "77 aprobadas en 2025; mandato prorrogado hasta 2028"
+    },
+    {
+      "indicador": "Víctimas de violencia sexual en Bosnia y Herzegovina que han recibido indemnización",
+      "valor": 1000,
+      "unidad": "personas",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "De una estimación de 20.000 a 50.000 víctimas"
+    },
+    {
+      "indicador": "Denuncias de violencia sexual presentadas en Nepal tras reapertura de plazo",
+      "valor": 4000,
+      "unidad": "denuncias",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2025",
+      "nota": "Plazo único de tres meses criticado por excluir a muchas víctimas"
+    },
+    {
+      "indicador": "Mujeres en parlamentos de países afectados por conflictos",
+      "valor": null,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Aumento ligero; 21 % de ministras en países afectados por conflictos en 2025"
+    },
+    {
+      "indicador": "Mujeres negociadoras en procesos de paz dirigidos o apoyados por la ONU",
+      "valor": 18,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Descenso respecto al 19 % en 2023 y 23 % en 2020"
+    },
+    {
+      "indicador": "Acuerdos de paz con disposiciones de género",
+      "valor": 31,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "11 de 36 acuerdos; solo 2 mencionaron violencia de género"
+    },
+    {
+      "indicador": "Mujeres en el personal uniformado de operaciones de paz",
+      "valor": 10,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Frente a poco más del 3 % hace 15 años"
+    },
+    {
+      "indicador": "Mujeres en fuerzas armadas (promedio en países que reportaron)",
+      "valor": 12,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "15 % fuerzas aéreas, 14 % marina, 16 % gendarmería; 97 % de oficiales generales son hombres"
+    },
+    {
+      "indicador": "Gasto militar mundial",
+      "valor": 2.7,
+      "unidad": "billones de dólares",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Aumento del 9,4 % en términos reales respecto a 2023; mayor aumento interanual desde el final de la Guerra Fría"
+    },
+    {
+      "indicador": "Países que aumentaron gasto militar",
+      "valor": 100,
+      "unidad": "países",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Más de 100 países"
+    },
+    {
+      "indicador": "Asistencia oficial para el desarrollo bilateral con igualdad de género como objetivo principal",
+      "valor": 5.2,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2022-2023",
+      "nota": "2.500 millones de dólares; ligera disminución frente al 5,4 % anterior"
+    },
+    {
+      "indicador": "Ayuda bilateral a organizaciones de mujeres en contextos de fragilidad",
+      "valor": 186,
+      "unidad": "millones de dólares/año",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2022-2023",
+      "nota": "0,4 % de la ayuda bilateral; por debajo del 1 % recomendado por la ONU"
+    },
+    {
+      "indicador": "Disminución de la ayuda internacional de donantes oficiales",
+      "valor": 7.1,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Primera disminución en seis años"
+    },
+    {
+      "indicador": "Organizaciones de mujeres que prevén cerrar en seis meses por recortes de financiación",
+      "valor": 45,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "marzo 2025",
+      "nota": "Encuesta de ONU-Mujeres; 90 % afirmó que sus operaciones se vieron afectadas económicamente"
+    },
+    {
+      "indicador": "Presupuesto del Fondo para la Consolidación de la Paz aprobado",
+      "valor": 116,
+      "unidad": "millones de dólares",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Frente a 202 millones en 2023; 49,9 millones (43 %) para igualdad de género"
+    },
+    {
+      "indicador": "Financiación de fondos mancomunados para países concretos a organizaciones dirigidas por mujeres",
+      "valor": 11,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "101,6 millones de dólares; aumento desde el 7 %; valor de referencia del 15 %"
+    },
+    {
+      "indicador": "Asignaciones del Fondo Humanitario para el Sudán a organizaciones dirigidas por mujeres",
+      "valor": 3,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Ejemplo de variación entre países"
+    },
+    {
+      "indicador": "Financiación recaudada por el Fondo para la Mujer, la Paz y la Acción Humanitaria",
+      "valor": 65.9,
+      "unidad": "millones de dólares",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Mayor cantidad anual desde la creación del Fondo en 2016; más de 1.600 organizaciones apoyadas en 49 países"
+    },
+    {
+      "indicador": "Mujeres de la sociedad civil que informaron al Consejo de Seguridad",
+      "valor": 338,
+      "unidad": "personas",
+      "fuente_id": "doc-002",
+      "fecha_dato": "última década",
+      "nota": "Frente a solo 17 entre 2000 y 2014; paridad de género entre las 464 personas invitadas en 2024"
+    },
+    {
+      "indicador": "Mujeres de la sociedad civil que denunciaron represalias tras informar al Consejo de Seguridad",
+      "valor": 7,
+      "unidad": "personas",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "De 25 encuestadas; incluye campañas de desprestigio, ciberataques y allanamientos"
+    },
+    {
+      "indicador": "Partes en conflictos incluidas en la lista del anexo del Secretario General",
+      "valor": 77,
+      "unidad": "partes",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2026",
+      "nota": "Frente a 63 en el informe anterior (S/2025/389)"
+    },
+    {
+      "indicador": "Partes incluidas en el anexo que son agresores reincidentes",
+      "valor": 65,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2026",
+      "nota": "Figuran en el anexo durante cinco o más años sin medidas correctoras"
+    },
+    {
+      "indicador": "Regímenes de sanciones de países concretos que incluyen violencia sexual como motivo",
+      "valor": 8,
+      "unidad": "regímenes",
+      "fuente_id": "doc-003",
+      "fecha_dato": "2026",
+      "nota": "Incluye sanciones por violencia sexual como táctica terrorista"
+    },
+    {
+      "indicador": "Mujeres jefas de Estado o de Gobierno en el mundo",
+      "valor": 29,
+      "unidad": "países",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2025",
+      "nota": "102 países nunca han tenido una mujer al frente"
+    },
+    {
+      "indicador": "Mujeres ministras en países afectados por conflictos",
+      "valor": 21,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2025",
+      "nota": "Frente al 23 % global; Yemen no tiene mujeres en el Gabinete"
+    },
+    {
+      "indicador": "Planes de acción nacionales sobre mujeres, paz y seguridad aprobados",
+      "valor": 113,
+      "unidad": "planes",
+      "fuente_id": "doc-002",
+      "fecha_dato": "julio 2025",
+      "nota": "Frente a 19 en 2010; 9 nuevos en 2024, incluidos los primeros de Colombia, Ecuador, Viet Nam y Zimbabwe"
+    },
+    {
+      "indicador": "Planes de acción nacionales con referencias al clima",
+      "valor": 53,
+      "unidad": "planes",
+      "fuente_id": "doc-002",
+      "fecha_dato": "junio 2025",
+      "nota": "Aumento desde 43 en 2023"
+    },
+    {
+      "indicador": "Mujeres en diplomacia del desarme (Primera Comisión)",
+      "valor": 38,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Aumento desde el 15 % en 2000"
+    },
+    {
+      "indicador": "Estados que integran consideraciones de género en control nacional de armamentos",
+      "valor": 74,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "De los Estados que presentaron informes en el marco del Programa de Acción sobre armas pequeñas y ligeras"
+    },
+    {
+      "indicador": "Personal de UNRWA muerto en Gaza desde octubre 2023",
+      "valor": 310,
+      "unidad": "personas",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024-2025",
+      "nota": "Al menos 125 mujeres"
+    },
+    {
+      "indicador": "Mujeres y niñas desplazadas por la fuerza a finales de 2024",
+      "valor": 123.2,
+      "unidad": "millones de personas",
+      "fuente_id": "doc-002",
+      "fecha_dato": "finales 2024",
+      "nota": "Decenio de aumentos interanuales en número de refugiados"
+    },
+    {
+      "indicador": "Mujeres y niñas apátridas y desplazadas en riesgo de violencia de género",
+      "valor": 60,
+      "unidad": "millones",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "En situación de elevado riesgo"
+    },
+    {
+      "indicador": "Niños afectados por crisis no escolarizados",
+      "valor": 85,
+      "unidad": "millones",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Más de 85 millones"
+    },
+    {
+      "indicador": "Muertes maternas en países con plan de respuesta humanitaria de la ONU",
+      "valor": 58,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2023",
+      "nota": "50 % de muertes de recién nacidos y 51 % de muertes prenatales en 29 países"
+    },
+    {
+      "indicador": "Mujeres embarazadas desplazadas en Sudán",
+      "valor": 272000,
+      "unidad": "personas",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Casi 272.000 embarazadas desplazadas"
+    },
+    {
+      "indicador": "Mujeres con embarazos de alto riesgo en Myanmar tras terremoto",
+      "valor": 223000,
+      "unidad": "personas",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2025",
+      "nota": "Debido a falta de servicios de atención materna"
+    },
+    {
+      "indicador": "Mujeres que dan a luz sin apoyo médico en Afganistán",
+      "valor": 33,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "Un tercio; una mujer muere cada dos horas por complicaciones evitables"
+    },
+    {
+      "indicador": "Aumento estimado de mortalidad materna en Afganistán para 2026",
+      "valor": 50,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "proyección",
+      "nota": "Estimación anterior a la prohibición de formación médica para mujeres"
+    },
+    {
+      "indicador": "Supervivientes de violencia sexual en Kosovo con estrés postraumático 25 años después",
+      "valor": 86,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-001",
+      "fecha_dato": "2024",
+      "nota": "A pesar de haber recibido atención psicosocial"
+    },
+    {
+      "indicador": "Aumento de violencia doméstica en Ucrania desde 2022",
+      "valor": 36,
+      "unidad": "porcentaje",
+      "fuente_id": "doc-002",
+      "fecha_dato": "2024",
+      "nota": "42 % de mujeres en riesgo de depresión; 53 % de desplazadas internas ya la padecen"
+    }
+  ],
+  "posturas_paises": [],
+  "resoluciones": [
+    {
+      "numero": "1325 (2000)",
+      "anio": 2000,
+      "tema": "Mujeres y paz y seguridad",
+      "obligaciones": "Participación de las mujeres en procesos de paz, protección de derechos, incorporación de perspectiva de género",
+      "estado_implementacion": "Implementación limitada; 113 planes de acción nacionales a julio de 2025, pero brechas de financiación y participación (18 % de negociadoras en 2024)"
+    },
+    {
+      "numero": "1820 (2008)",
+      "anio": 2008,
+      "tema": "Violencia sexual relacionada con conflictos",
+      "obligaciones": "Condena de la violencia sexual como táctica de guerra; solicitud de informe anual del Secretario General",
+      "estado_implementacion": "Informes anuales presentados; casos documentados en aumento"
+    },
+    {
+      "numero": "1888 (2009)",
+      "anio": 2009,
+      "tema": "Violencia sexual relacionada con conflictos",
+      "obligaciones": "Mandato del Equipo de Expertos sobre Estado de Derecho y Violencia Sexual; nombramiento de Asesores de Protección de las Mujeres; sistema de vigilancia, análisis y notificación",
+      "estado_implementacion": "Asesores desplegados en solo 9 de más de 20 entornos en 2025; dificultades de financiación"
+    },
+    {
+      "numero": "1960 (2010)",
+      "anio": 2010,
+      "tema": "Violencia sexual relacionada con conflictos",
+      "obligaciones": "Compromisos con plazos específicos para partes en conflicto; criterios de inclusión en listas de sanciones",
+      "estado_implementacion": "Más del 65 % de partes en el anexo son agresores reincidentes sin medidas correctoras"
+    },
+    {
+      "numero": "2106 (2013)",
+      "anio": 2013,
+      "tema": "Violencia sexual relacionada con conflictos",
+      "obligaciones": "Fortalecimiento de la rendición de cuentas y lucha contra la impunidad",
+      "estado_implementacion": "Impunidad persiste en la mayoría de situaciones; avances limitados en justicia transicional"
+    },
+    {
+      "numero": "2122 (2013)",
+      "anio": 2013,
+      "tema": "Mujeres y paz y seguridad",
+      "obligaciones": "Solicitud de información actualizada sobre progresos, retos y deficiencias en toda la agenda",
+      "estado_implementacion": "Informes anuales presentados; brechas persistentes en datos de género"
+    },
+    {
+      "numero": "2242 (2015)",
+      "anio": 2015,
+      "tema": "Mujeres y paz y seguridad",
+      "obligaciones": "Prohibición de participar en operaciones de paz a fuerzas armadas nacionales que figuren repetidamente en el anexo",
+      "estado_implementacion": "Aplicada; varios actores estatales en el anexo"
+    },
+    {
+      "numero": "2331 (2016)",
+      "anio": 2016,
+      "tema": "Violencia sexual relacionada con conflictos",
+      "obligaciones": "Enfoque en trata de personas y violencia sexual en conflictos; rendición de cuentas",
+      "estado_implementacion": "Trata con fines de explotación sexual documentada en múltiples contextos (Libia, Haití, Colombia)"
+    },
+    {
+      "numero": "2467 (2019)",
+      "anio": 2019,
+      "tema": "Violencia sexual relacionada con conflictos",
+      "obligaciones": "Informes anuales del Secretario General; enfoque centrado en las víctimas; despliegue de asesores de protección de las mujeres; acceso a servicios de salud sexual y reproductiva",
+      "estado_implementacion": "Parcial; recortes de financiación han cerrado espacios seguros y reducido servicios; acceso humanitario restringido"
+    },
+    {
+      "numero": "2493 (2019)",
+      "anio": 2019,
+      "tema": "Mujeres y paz y seguridad",
+      "obligaciones": "Reforzar medidas para implementar plenamente la agenda",
+      "estado_implementacion": "Estancamiento y retroceso en muchos objetivos según S/2025/556"
+    },
+    {
+      "numero": "2594 (2021)",
+      "anio": 2021,
+      "tema": "Operaciones de paz y transiciones",
+      "obligaciones": "Prevenir vacíos de protección durante reducción y retirada de misiones de paz",
+      "estado_implementacion": "Retirada de MINUSMA y otras misiones ha dejado vacíos de seguridad y mermado capacidad de vigilancia"
+    },
+    {
+      "numero": "2669 (2022)",
+      "anio": 2022,
+      "tema": "Myanmar",
+      "obligaciones": "Cese de violencia sexual; acceso humanitario; liberación de detenidos arbitrariamente",
+      "estado_implementacion": "Incumplida; violencia sexual sistemática persiste en 2025"
+    },
+    {
+      "numero": "2681 (2023)",
+      "anio": 2023,
+      "tema": "Afganistán",
+      "obligaciones": "Reversión de leyes y políticas que restringen derechos de mujeres y niñas",
+      "estado_implementacion": "No cumplida; autoridades talibanas mantienen restricciones"
+    },
+    {
+      "numero": "2730 (2024)",
+      "anio": 2024,
+      "tema": "Protección de personal humanitario",
+      "obligaciones": "Respeto y protección del personal humanitario y de la ONU",
+      "estado_implementacion": "Ataques contra trabajadores humanitarios alcanzaron niveles sin precedentes en 2024"
+    },
+    {
+      "numero": "2734 (2024)",
+      "anio": 2024,
+      "tema": "Sanciones Dáesh/Al-Qaida",
+      "obligaciones": "Violencia sexual y de género como acto punible por el Comité 1267; criterio de inclusión en listas",
+      "estado_implementacion": "Aplicada; violencia sexual como motivo de inclusión en lista de sanciones de Haití (Gran Grif) en 2025"
+    },
+    {
+      "numero": "2773 (2025)",
+      "anio": 2025,
+      "tema": "República Democrática del Congo",
+      "obligaciones": "Condena de ofensiva del M23 con apoyo de Fuerzas de Defensa de Rwanda",
+      "estado_implementacion": "Violencia sexual documentada en aumento (1.534 casos verificados por MONUSCO en 2025)"
+    }
+  ],
+  "tendencias_temporales": [
+    {
+      "anio": 2000,
+      "indicador": "Porcentaje de decisiones del Consejo de Seguridad con formulaciones de género",
+      "valor": 10,
+      "fuente_id": "doc-002",
+      "nota": "Aproximado; en 2024 superó el 60 %"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Porcentaje de decisiones del Consejo de Seguridad con formulaciones de género",
+      "valor": 60,
+      "fuente_id": "doc-002",
+      "nota": "Más del 60 %; ligero aumento respecto a 2023; casi 50 puntos porcentuales más que en 2000"
+    },
+    {
+      "anio": 2010,
+      "indicador": "Planes de acción nacionales sobre mujeres, paz y seguridad",
+      "valor": 19,
+      "fuente_id": "doc-002",
+      "nota": "Frente a 113 en julio de 2025"
+    },
+    {
+      "anio": 2025,
+      "indicador": "Planes de acción nacionales sobre mujeres, paz y seguridad",
+      "valor": 113,
+      "fuente_id": "doc-002",
+      "nota": "Incluye planes de territorios; 9 nuevos en 2024 (Colombia, Ecuador, Viet Nam, Zimbabwe primeros)"
+    },
+    {
+      "anio": 2020,
+      "indicador": "Mujeres negociadoras en procesos de paz dirigidos o apoyados por la ONU",
+      "valor": 23,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje"
+    },
+    {
+      "anio": 2023,
+      "indicador": "Mujeres negociadoras en procesos de paz dirigidos o apoyados por la ONU",
+      "valor": 19,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje; descenso respecto a 2020"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Mujeres negociadoras en procesos de paz dirigidos o apoyados por la ONU",
+      "valor": 18,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje; descenso continuado"
+    },
+    {
+      "anio": 1990,
+      "indicador": "Porcentaje de acuerdos de paz con disposiciones de género",
+      "valor": 7,
+      "fuente_id": "doc-002",
+      "nota": "Dato de la figura II; pico en 2015 (52 %) y descenso posterior"
+    },
+    {
+      "anio": 2015,
+      "indicador": "Porcentaje de acuerdos de paz con disposiciones de género",
+      "valor": 52,
+      "fuente_id": "doc-002",
+      "nota": "Pico histórico según figura II"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Porcentaje de acuerdos de paz con disposiciones de género",
+      "valor": 31,
+      "fuente_id": "doc-002",
+      "nota": "11 de 36 acuerdos; solo 2 mencionaron violencia de género"
+    },
+    {
+      "anio": 2016,
+      "indicador": "Mujeres en fuerzas armadas (promedio)",
+      "valor": 11,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje; aumentó al 14 % en 2022"
+    },
+    {
+      "anio": 2022,
+      "indicador": "Mujeres en fuerzas armadas (promedio)",
+      "valor": 14,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje; 97 % de oficiales generales son hombres"
+    },
+    {
+      "anio": 2017,
+      "indicador": "Participación de mujeres en mantenimiento de la paz",
+      "valor": null,
+      "fuente_id": "doc-002",
+      "nota": "Se ha duplicado con creces desde 2017; en 2024 ligeramente superior al 10 % del personal uniformado"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Participación de mujeres en mantenimiento de la paz (personal uniformado)",
+      "valor": 10,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje; frente a poco más del 3 % hace 15 años"
+    },
+    {
+      "anio": 2000,
+      "indicador": "Mujeres en diplomacia del desarme (Primera Comisión)",
+      "valor": 15,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Mujeres en diplomacia del desarme (Primera Comisión)",
+      "valor": 38,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje; aumento constante"
+    },
+    {
+      "anio": 2023,
+      "indicador": "Ayuda bilateral a organizaciones de mujeres en contextos de fragilidad",
+      "valor": 205,
+      "fuente_id": "doc-002",
+      "nota": "Millones de dólares/año en 2020-2021; disminuyó a 186 millones en 2022-2023"
+    },
+    {
+      "anio": 2022,
+      "indicador": "Ayuda bilateral a organizaciones de mujeres en contextos de fragilidad",
+      "valor": 186,
+      "fuente_id": "doc-002",
+      "nota": "Millones de dólares/año; 0,4 % de la ayuda bilateral"
+    },
+    {
+      "anio": 2015,
+      "indicador": "Asignaciones del Fondo para la Consolidación de la Paz a igualdad de género",
+      "valor": null,
+      "fuente_id": "doc-002",
+      "nota": "Figura VII muestra evolución 2015-2024; en 2024: 49,9 millones (43 %) frente a 95,8 millones (47,3 %) en 2023"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Asignaciones del Fondo para la Consolidación de la Paz a igualdad de género",
+      "valor": 49.9,
+      "fuente_id": "doc-002",
+      "nota": "Millones de dólares; 43 % del total aprobado (116 millones)"
+    },
+    {
+      "anio": 2023,
+      "indicador": "Asignaciones del Fondo para la Consolidación de la Paz a igualdad de género",
+      "valor": 95.8,
+      "fuente_id": "doc-002",
+      "nota": "Millones de dólares; 47,3 % del total aprobado (202 millones)"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Fondos mancomunados para países concretos asignados a proyectos con marcador de género 3 o 4",
+      "valor": 94,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje; 935 millones de dólares"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Fondo Central para la Acción en Casos de Emergencia asignado a proyectos con marcador de género 3 o 4",
+      "valor": 74,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje; 545 millones de dólares"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Asignaciones de fondos mancomunados a organizaciones dirigidas por mujeres",
+      "valor": 11,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje; 101,6 millones de dólares; aumento desde el 7 %"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Casos de violencia sexual contra niñas (aumento)",
+      "valor": 35,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje de aumento respecto al año anterior; en algunos lugares casi la mitad de las víctimas son niñas"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Aumento de casos documentados de violencia sexual relacionada con conflictos en dos años",
+      "valor": 87,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje"
+    },
+    {
+      "anio": 2025,
+      "indicador": "Partes en conflictos incluidas en el anexo del Secretario General",
+      "valor": 77,
+      "fuente_id": "doc-003",
+      "nota": "Frente a 63 en el informe anterior (S/2025/389); más del 65 % son agresores reincidentes"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Partes en conflictos incluidas en el anexo del Secretario General",
+      "valor": 63,
+      "fuente_id": "doc-001",
+      "nota": "Dato del informe S/2025/389"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Mujeres jefas de misión de la ONU",
+      "valor": 42,
+      "fuente_id": "doc-002",
+      "nota": "Porcentaje más alto registrado (figura V); jefas adjuntas de misión: 41 %"
+    },
+    {
+      "anio": 2021,
+      "indicador": "Paridad de género en jefaturas y jefaturas adjuntas de misión de la ONU",
+      "valor": null,
+      "fuente_id": "doc-002",
+      "nota": "Alcanzada por primera vez en 2021; ha disminuido desde entonces"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Mujeres en grupos de expertos de comités de sanciones",
+      "valor": null,
+      "fuente_id": "doc-002",
+      "nota": "Se ha más que duplicado desde 2016 y se acerca a la paridad"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Personas invitadas a informar al Consejo de Seguridad (artículo 39)",
+      "valor": 464,
+      "fuente_id": "doc-002",
+      "nota": "Paridad de género entre las personas invitadas"
+    },
+    {
+      "anio": 2025,
+      "indicador": "Mujeres de la sociedad civil invitadas a informar al Consejo de Seguridad (primer semestre)",
+      "valor": null,
+      "fuente_id": "doc-002",
+      "nota": "Descenso notable en el primer semestre de 2025"
+    },
+    {
+      "anio": 2024,
+      "indicador": "Exenciones de prohibición de viajar aprobadas para dirigentes talibanes sancionados",
+      "valor": 25,
+      "fuente_id": "doc-002",
+      "nota": "Frente a 16 en 2023 y 5 en 2022"
+    }
+  ],
+  "brechas": [
+    {
+      "tipo": "Financiamiento insuficiente",
+      "descripcion": "Recortes drásticos a la financiación de entidades de la ONU y organizaciones de mujeres; cierre de espacios seguros y reducción de servicios vitales",
+      "fuente_id": "doc-002",
+      "cita": "En el Yemen, la suspensión de la financiación ya ha obligado a cerrar 22 espacios seguros a principios de 2025, lo que ha privado de servicios y apoyo a más de 11.000 mujeres y niñas en zonas de alto riesgo.",
+      "datos": "Ayuda bilateral a organizaciones de mujeres en contextos de fragilidad: 186 millones de dólares/año (0,4 %), por debajo del 1 % recomendado"
+    },
+    {
+      "tipo": "Falta de rendición de cuentas",
+      "descripcion": "Impunidad generalizada; más del 65 % de partes en el anexo son agresores reincidentes sin medidas correctoras",
+      "fuente_id": "doc-003",
+      "cita": "Más del 65 % de las partes incluidas en la lista del anexo del presente informe son autores reincidentes, y figuran en el anexo durante cinco o más años sin tomar medidas correctoras o reparadoras.",
+      "datos": "Solo 8 regímenes de sanciones incluyen violencia sexual como motivo"
+    },
+    {
+      "tipo": "Acceso humanitario restringido",
+      "descripcion": "Restricciones al acceso humanitario en Libia, Myanmar, Sudán, Yemen, Gaza y otros lugares; ataques contra trabajadores humanitarios",
+      "fuente_id": "doc-001",
+      "cita": "La inseguridad reinante restringió de modo considerable el acceso humanitario en Libia, Myanmar, el Sudán y el Yemen, así como en Gaza y otros lugares, lo que menguó la capacidad de prestar servicios vitales.",
+      "datos": "Personal de UNRWA muerto en Gaza: más de 310 desde octubre de 2023, incluidos al menos 125 mujeres"
+    },
+    {
+      "tipo": "Déficit de datos de género",
+      "descripcion": "Escasez de datos y análisis de género, especialmente sobre violencia sexual relacionada con conflictos; invisibiliza experiencias de mujeres y niñas",
+      "fuente_id": "doc-002",
+      "cita": "La escasez de datos y análisis de género, tanto cuantitativos como cualitativos, invisibiliza las experiencias vividas y las necesidades de las mujeres y las niñas, especialmente en situaciones de conflicto y crisis.",
+      "datos": "Solo 15 % del apoyo bilateral a datos y estadísticas se destinó a datos de género; 122 millones de dólares"
+    },
+    {
+      "tipo": "Baja participación de mujeres en procesos de paz",
+      "descripcion": "Representación de mujeres como negociadoras, mediadoras y signatarias muy por debajo de la meta mínima de un tercio",
+      "fuente_id": "doc-002",
+      "cita": "En 2024, las mujeres representaban, en promedio, solo el 18 % de los negociadores o delegados entre los negociadores en los procesos de paz y constituyentes dirigidos, codirigidos o apoyados por las Naciones Unidas.",
+      "datos": "Descenso desde el 19 % en 2023 y el 23 % en 2020"
+    },
+    {
+      "tipo": "Debilitamiento del lenguaje de género y retroceso en derechos",
+      "descripcion": "Reacción negativa frente a la igualdad de género; controversias sobre términos de género; retroceso en protecciones jurídicas",
+      "fuente_id": "doc-002",
+      "cita": "A principios de 2025, los Estados Miembros informaron de reacciones negativas frente a los derechos de las mujeres en casi una cuarta parte de los países que pretendían poner en práctica la Plataforma de Acción de Beijing.",
+      "datos": "Aumento de discriminación y reducción de financiación para atención no discriminatoria de salud sexual y reproductiva"
+    },
+    {
+      "tipo": "Retirada de operaciones de paz y vacíos de protección",
+      "descripcion": "Cierre de MINUSMA y otras misiones ha dejado vacíos de seguridad y mermado capacidad de vigilancia y respuesta",
+      "fuente_id": "doc-001",
+      "cita": "En general, la retirada o la reducción de las operaciones de paz ha dejado vacíos de seguridad y mermado la capacidad de las Naciones Unidas para ayudar a las partes interesadas a abordar los casos de violencia sexual.",
+      "datos": "Asesores de protección de las mujeres desplegados solo en 9 de más de 20 entornos en 2025"
+    },
+    {
+      "tipo": "Servicios insuficientes para supervivientes",
+      "descripcion": "Falta de profesionales formados, escasez de kits posviolación, servicios concentrados en zonas urbanas y de acceso costoso",
+      "fuente_id": "doc-001",
+      "cita": "Las personas supervivientes rara vez lograban consultar a los proveedores de servicios especializados durante las 72 horas vitales en las que el manejo clínico de los casos de violación, incluidos los tratamientos de prevención del VIH, resulta más eficaz.",
+      "datos": "En RDC, 90.199 casos registrados por proveedores entre enero y septiembre de 2025"
+    },
+    {
+      "tipo": "Violencia sexual en centros de detención",
+      "descripcion": "Acceso humanitario bloqueado o restringido a centros de detención; violencia sexual como tortura",
+      "fuente_id": "doc-003",
+      "cita": "En varios lugares, el acceso humanitario a los centros de detención siguió estando limitado o bloqueado. En Libia, las restricciones de acceso suscitaron preocupaciones en materia de protección.",
+      "datos": "Al menos seis centros de detención no oficiales en Libia inaccesibles para la ONU, con más de 3.000 detenidos"
+    },
+    {
+      "tipo": "Estigmatización y barreras de acceso a la justicia",
+      "descripcion": "Miedo a represalias, falta de asistencia letrada, distancias largas, costos prohibitivos y justicia consuetudinaria que obliga a casarse con agresores",
+      "fuente_id": "doc-001",
+      "cita": "A menudo, las víctimas se abstuvieron de presentar una denuncia por miedo a las represalias y la estigmatización. En algunos casos, la falta de procesos formales de rendición de cuentas hacía que se recurriera a la justicia consuetudinaria, lo que suele perjudicar a las supervivientes, que, a veces, se ven obligadas a casarse con los agresores.",
+      "datos": "En Colombia, menos del 10 % de los casos tuvieron pruebas forenses"
+    },
+    {
+      "tipo": "Recursos limitados para el Equipo de Expertos sobre Estado de Derecho",
+      "descripcion": "Solicitudes de asistencia técnica superan capacidad y recursos presupuestarios del Equipo",
+      "fuente_id": "doc-003",
+      "cita": "Las solicitudes de asistencia técnica presentadas por los Estados Miembros han seguido aumentando, y superaron la capacidad y los recursos presupuestarios del equipo.",
+      "datos": "Equipo apoyó a 10 Estados Miembros en 2025"
+    },
+    {
+      "tipo": "Insuficiente financiación del fondo fiduciario multipartito",
+      "descripcion": "Red de Acción de las Naciones Unidas contra la Violencia Sexual en los Conflictos financiada exclusivamente mediante contribuciones voluntarias",
+      "fuente_id": "doc-003",
+      "cita": "Financiada exclusivamente mediante contribuciones voluntarias al fondo fiduciario multipartito para la violencia sexual relacionada con los conflictos, la red ha llevado a cabo 66 proyectos en 22 zonas de conflicto desde 2008.",
+      "datos": "60 proyectos en 18 situaciones de conflicto hasta 2024; 66 proyectos en 22 zonas hasta 2025"
+    },
+    {
+      "tipo": "Cierre de servicios de salud y atención a víctimas",
+      "descripcion": "Recortes de financiación han cerrado centros de salud, espacios seguros y puntos de atención para violencia de género",
+      "fuente_id": "doc-003",
+      "cita": "A julio de 2025 se habían cerrado más de 400 centros de salud, así como cientos de puntos de atención para la violencia de género que contaban con el apoyo de las Naciones Unidas.",
+      "datos": "En Somalia, cierre de 120 centros de atención integral y espacios seguros; solo quedan 80"
+    },
+    {
+      "tipo": "Ataques contra defensores de derechos humanos y proveedores de servicios",
+      "descripcion": "Amenazas, represalias y ataques contra quienes documentan violencia sexual o apoyan a víctimas",
+      "fuente_id": "doc-001",
+      "cita": "Las amenazas y las agresiones contra los agentes humanitarios, el personal de las Naciones Unidas y los defensores de los derechos humanos alcanzaron niveles sin precedentes.",
+      "datos": "7 de 25 mujeres de la sociedad civil que informaron al Consejo de Seguridad denunciaron represalias en 2024"
+    }
+  ]
+}
