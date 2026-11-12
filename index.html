@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Violencia Sexual en Conflictos · Experiencia Interactiva</title>
 
+<!-- ============================================================
+     GOOGLE ANALYTICS (gtag.js)
+     ============================================================ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-22BHJ0HTFD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-22BHJ0HTFD');
+</script>
+
 <!-- Google Fonts: Poppins (pesos 400, 600, 800) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -264,7 +275,6 @@ h3{font-size:clamp(1.2rem, 3vw, 1.6rem);}
 .feedback.ok{border-color:var(--verde);}
 .feedback.no{border-color:var(--rojo);}
 
-/* Pantalla de instrucciones genérica */
 .instrucciones{text-align:center;padding:40px 20px;}
 .instrucciones h2{margin-bottom:16px;}
 .instrucciones p{max-width:600px;margin:0 auto 24px;color:var(--texto-suave);}
@@ -473,14 +483,12 @@ footer.app-footer a { color: var(--coral); text-decoration: underline; }
         <button class="btn secundario oculto" id="reiniciarJ1">↻ Reiniciar</button>
       </header>
 
-      <!-- Pantalla de instrucciones -->
       <div id="instruccionesJ1" class="instrucciones">
         <h2>El póster oficial promete protección. Pero la realidad tiene fallas.</h2>
         <p>Hay 3 alertas ocultas en el póster. Haz clic en cada una para descubrir qué está fallando según los informes de la ONU. Al final, verás las citas textuales que lo demuestran.</p>
         <button class="btn" onclick="empezarJ1()">Empezar</button>
       </div>
 
-      <!-- Juego -->
       <div id="juegoJ1" class="oculto">
         <div class="poster-wrap" id="posterJ1">
           <h3 style="color:var(--texto-suave)">PROTECCIÓN GARANTIZADA</h3>
@@ -1350,7 +1358,6 @@ function responderJ4(respuestaUsuario) {
   const correcto = respuestaUsuario === q.valor;
   if (correcto) puntosJ4++;
 
-  // Feedback visual en botones
   if (q.valor) {
     document.getElementById('btnVerdaderoJ4').classList.add('correcta');
     document.getElementById('btnFalsoJ4').classList.add('incorrecta');
